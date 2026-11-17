@@ -149,17 +149,57 @@ class Bot:
         st.setdefault("initial_equity", CFG["initial_cash"])
         return st
 
-    def _sync_account(self, prices):
-        """Tryb konta demo: gotówka i pozycje pochodzą z prawdziwych sald konta demo giełdy."""
+    def _quote(self):
+        return getattr(self.broker, "quote", None) or "USDT"
+
+    @staticmethod
+    def _amt(x, sign=False):
+        """Kwota z odstępem tysięcy, np. 566 475.83."""
+        return (f"{x:+,.2f}" if sign else f"{x:,.2f}").replace(",", " ")
+
+    def _sync_account(self, prices, own_trade=False):
+        """Tryb konta demo: gotówka i pozycje pochodzą z prawdziwych sald konta demo giełdy.
+
+        Zmiana sald, której nie wywołało zlecenie bota (wpłata, wypłata, ręczna transakcja,
+        reset konta demo), przesuwa punkt startowy i szczyt o swoją wartość. Dzięki temu
+        wynik i obsunięcie pokazują tylko efekt strategii.
+        """
         s = self.state
+        old_cash, old_units = s["cash"], dict(s["units"])
         bal = self.broker.balances()
         s["cash"] = bal["USDT"]
         for a in ASSETS:
             s["units"][a] = bal[COIN[a]]
+        eq = s["cash"] + sum(s["units"][a] * prices[a] for a in ASSETS)
         if s["initial_equity"] is None:
+            s["initial_equity"] = s["peak_equity"] = eq
+            self._event("info", f"Połączono z kontem demo {VENUE}. Kapitał na starcie: {self._amt(eq)} {self._quote()}.")
+            return
+        if own_trade:
+            return
+        flow = (s["cash"] - old_cash) + sum((s["units"][a] - old_units.get(a, 0.0)) * prices[a] for a in ASSETS)
+        if abs(flow) > max(1.0, 1e-5 * eq):  # pomija zaokrąglenia giełdy
+            s["initial_equity"] += flow
+            s["peak_equity"] = max(s["peak_equity"] + flow, eq)
+            s["flows_total"] = s.get("flows_total", 0.0) + flow
+            kind = "Wpłata lub zakup spoza bota" if flow > 0 else "Wypłata, sprzedaż spoza bota albo reset konta demo"
+            self._event("info", f"{kind}: {self._amt(flow, sign=True)} {self._quote()}. Punkt startowy przesunięty "
+                                f"o tę kwotę, więc nie wpływa na wynik strategii.")
+
+    def rebase(self):
+        """Ustawia obecny kapitał jako nowy punkt startowy i szczyt (przycisk w panelu)."""
+        with self.lock:
+            s, kl = self.state, self.market
+            if not kl:
+                return False
+            prices = {a: kl[a][-1]["close"] for a in ASSETS}
             eq = s["cash"] + sum(s["units"][a] * prices[a] for a in ASSETS)
             s["initial_equity"] = s["peak_equity"] = eq
-            self._event("info", f"Połączono z kontem demo {VENUE}. Kapitał na starcie: {eq:,.2f} {getattr(self.broker, 'quote', None) or 'USDT'}.".replace(",", " "))
+            s["alert_active"] = False
+            s["flows_total"] = 0.0
+            self._event("info", f"Operator ustawił nowy punkt startowy: {self._amt(eq)} {self._quote()}.")
+            self._save()
+            return True
 
     def _fill(self, a, delta, price, sell_all):
         """Wykonuje zmianę pozycji. Zwraca (ilość, cena, wartość, koszt w USDT) albo None."""
@@ -230,6 +270,12 @@ class Bot:
                 fill = self._fill(a, delta, opens[a], sell_all=(tgt[a] == 0))
             except BrokerError as e:
                 self._event("alert", f"Zlecenie {a} na {VENUE} demo nie powiodło się: {e}")
+                if live:
+                    # zlecenie mogło się częściowo wypełnić: zapisz salda jako efekt bota, nie wpłatę
+                    try:
+                        self._sync_account(opens, own_trade=True)
+                    except BrokerError:
+                        pass
                 raise
             s["last_votes"][a] = votes
             if fill is None:
@@ -249,7 +295,7 @@ class Bot:
                 "reason": reason, "replay": replay, "late": late and not live, "venue": CFG["broker"],
             })
             if live:
-                self._sync_account(opens)
+                self._sync_account(opens, own_trade=True)
         s["trades"] = s["trades"][-500:]
         s["last_signal_date"] = kl[ASSETS[0]][j]["date"]
         eq = s["cash"] + sum(s["units"][a] * opens[a] for a in ASSETS)
@@ -382,6 +428,7 @@ class Bot:
                 "equity": eq, "cash": s["cash"], "invested": invested, "exposure": invested / eq if eq else 0.0,
                 "initial": initial, "pnl": eq - initial, "pnl_pct": eq / initial - 1,
                 "peak": s["peak_equity"], "drawdown": eq / s["peak_equity"] - 1, "fees_paid": s["fees_paid"],
+                "flows_total": s.get("flows_total", 0.0),
                 "trade_count": len(s["trades"]), "next_eval_ms": next_close,
             }
             return out

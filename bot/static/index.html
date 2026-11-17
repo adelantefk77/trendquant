@@ -158,7 +158,7 @@ footer .in{max-width:1360px;margin:0 auto}
 
   <section class="grid g4">
     <div class="tile"><div class="caps">Wartość portfela</div><div class="v" id="k-eq">–</div><div class="s" id="k-eq-s">–</div></div>
-    <div class="tile"><div class="caps">Wynik od startu</div><div class="v" id="k-pnl">–</div><div class="s" id="k-pnl-s">–</div></div>
+    <div class="tile" style="position:relative"><div class="caps">Wynik od startu</div><button class="btn" id="rebase-btn" style="position:absolute;top:10px;right:10px;height:24px;padding:0 8px;font-size:10px" title="Ustaw obecny kapitał jako nowy punkt startowy i szczyt">Nowy start</button><div class="v" id="k-pnl">–</div><div class="s" id="k-pnl-s">–</div></div>
     <div class="tile"><div class="caps">Obsunięcie od szczytu</div><div class="v" id="k-dd">–</div><div class="s" id="k-dd-s">–</div></div>
     <div class="tile"><div class="caps">Transakcje i koszty</div><div class="v" id="k-tr">–</div><div class="s" id="k-tr-s">–</div></div>
   </section>
@@ -289,6 +289,7 @@ function render(){
   $("pause-btn").textContent=S.paused?"Wznów":"Wstrzymaj";
   $("pause-btn").className="btn"+(S.paused?" primary":"");
   $("pause-btn").style.display=S.controls_enabled===false?"none":"";
+  $("rebase-btn").style.display=S.controls_enabled===false?"none":"";
   $("sig-date").textContent=S.last_signal_date||"–";
   $("updated").textContent=st.updated_at?st.updated_at.replace("T"," ").replace("Z"," UTC"):"–";
   const bn=$("banner"),msgs=[];
@@ -301,7 +302,7 @@ function render(){
   $("votes-chip").innerHTML=S.assets.map(a=>`<span class="${a.votes===3?"green":a.votes===0?"dim":"amber"}">${a.symbol.replace("USDT","")}: ${a.votes??"–"}/3 głosy</span>`).join('<span class="dim"> | </span>');
   $("expo").textContent=pct(p.exposure)+" łącznie";
   $("k-eq").textContent=usd(p.equity);$("k-eq-s").textContent=(demo?"Saldo demo przy podłączeniu ":"Kapitał początkowy ")+usd(p.initial,demo?2:0);
-  $("k-pnl").textContent=sgn(p.pnl,usd);$("k-pnl").className="v "+(p.pnl>0?"green":p.pnl<0?"amber":"");$("k-pnl-s").textContent=sgn(p.pnl_pct,x=>pct(x,2))+" od startu";
+  $("k-pnl").textContent=sgn(p.pnl,usd);$("k-pnl").className="v "+(p.pnl>0?"green":p.pnl<0?"amber":"");$("k-pnl-s").textContent=sgn(p.pnl_pct,x=>pct(x,2))+" od startu"+(Math.abs(p.flows_total||0)>=1?" · korekty salda "+sgn(p.flows_total,x=>usd(x,0)):"");
   $("k-dd").textContent=p.drawdown<0?"−"+pct(-p.drawdown,2):pct(0,2);$("k-dd").className="v "+(S.alert_active?"amber":"");
   $("k-dd-s").innerHTML=`Szczyt ${usd(p.peak,0)} · alarm przy −${pct(S.config.dd_alert,0)}`;
   $("k-tr").textContent=p.trade_count;$("k-tr-s").textContent="Koszty łącznie "+usd(p.fees_paid);
@@ -335,6 +336,12 @@ async function load(){
   try{const r=await fetch("/api/state");S=await r.json();render()}
   catch(e){$("st-text").textContent="Brak połączenia z botem";$("st-dot").className="dot bad"}
 }
+$("rebase-btn").addEventListener("click",async()=>{
+  if(busy||!S||!S.portfolio)return;
+  if(!confirm("Ustawić obecny kapitał ("+usd(S.portfolio.equity)+") jako nowy punkt startowy?\nWynik i obsunięcie zaczną się liczyć od zera. Historii transakcji to nie usuwa."))return;
+  busy=true;
+  try{await fetch("/api/rebase",{method:"POST"});await load()}finally{busy=false}
+});
 $("pause-btn").addEventListener("click",async()=>{
   if(busy||!S)return;busy=true;
   try{await fetch(S.paused?"/api/resume":"/api/pause",{method:"POST"});await load()}finally{busy=false}

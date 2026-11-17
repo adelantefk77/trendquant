@@ -96,6 +96,8 @@ class Handler(BaseHTTPRequestHandler):
             bot.set_paused(True)
         elif self.path == "/api/resume":
             bot.set_paused(False)
+        elif self.path == "/api/rebase":
+            return self._json({"ok": bot.rebase()})
         else:
             return self._json({"error": "not found"}, 404)
         self._json({"paused": bot.state["paused"]})
