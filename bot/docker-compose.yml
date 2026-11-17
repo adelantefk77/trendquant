@@ -1,6 +1,8 @@
 services:
   bot:
-    build: .
+    build:
+      context: ..             # Dockerfile leży w głównym katalogu repozytorium
+      dockerfile: Dockerfile
     image: trendquant-paper-bot
     container_name: trendquant-paper-bot
     restart: unless-stopped

@@ -1,0 +1,6 @@
+# Do obrazu trafia tylko kod bota. Klucze z bot/.env nie są kopiowane do obrazu.
+*
+!bot/engine.py
+!bot/bybit.py
+!bot/server.py
+!bot/static/

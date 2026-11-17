@@ -286,12 +286,14 @@ function render(){
   $("st-text").textContent=st.message||"";
   $("pause-btn").textContent=S.paused?"Wznów":"Wstrzymaj";
   $("pause-btn").className="btn"+(S.paused?" primary":"");
+  $("pause-btn").style.display=S.controls_enabled===false?"none":"";
   $("sig-date").textContent=S.last_signal_date||"–";
   $("updated").textContent=st.updated_at?st.updated_at.replace("T"," ").replace("Z"," UTC"):"–";
   const bn=$("banner"),msgs=[];
   if(!st.data_ok)msgs.push(esc(st.message)+(st.last_error?" ("+esc(st.last_error)+")":""));
   if(S.alert_active)msgs.push("Alarm: obsunięcie portfela przekroczyło próg "+pct(S.config.dd_alert,0)+". Bot nie sprzedaje automatycznie, przejrzyj sytuację.");
   if(S.paused)msgs.push("Bot jest wstrzymany. Sygnały są pomijane do czasu wznowienia.");
+  if(S.controls_enabled===false)msgs.push("Panel tylko do odczytu: ustaw zmienną PANEL_PASSWORD, żeby włączyć przycisk wstrzymania.");
   bn.style.display=msgs.length?"block":"none";bn.innerHTML=msgs.join("<br>");
   if(!p)return;
   $("votes-chip").innerHTML=S.assets.map(a=>`<span class="${a.votes===3?"green":a.votes===0?"dim":"amber"}">${a.symbol.replace("USDT","")}: ${a.votes??"–"}/3 głosy</span>`).join('<span class="dim"> | </span>');

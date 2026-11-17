@@ -32,3 +32,20 @@ Panel: http://localhost:8080
 
 Z plikiem `bot/.env` (klucze konta **demo** Bybit) bot wysyła zlecenia na konto demo.
 Bez niego prowadzi portfel wirtualny. Klient Bybit działa wyłącznie ze środowiskiem demo.
+
+## Railway
+
+Repozytorium jest gotowe do wdrożenia: Railway sam znajdzie `Dockerfile` i `railway.json`
+w głównym katalogu. W panelu Railway trzeba ustawić:
+
+1. **Variables:**
+   - `BYBIT_DEMO_API_KEY` i `BYBIT_DEMO_API_SECRET`: klucze demo Bybit (te same co w `bot/.env`).
+     Railway nie czyta `bot/.env`. Bez tych zmiennych bot prowadzi portfel wirtualny.
+   - `PANEL_PASSWORD`: hasło do panelu. Przeglądarka poprosi o login (nazwa użytkownika dowolna).
+     Bez hasła panel jest publiczny i tylko do odczytu.
+   - opcjonalnie parametry strategii: `TARGET_VOL`, `CAP_ASSET`, `CAP_TOTAL`, `BAND`, `DD_ALERT`.
+2. **Volume:** dodaj wolumen zamontowany w `/data`, żeby stan bota przetrwał kolejne wdrożenia.
+3. **Region:** wybierz region w Europie (np. Amsterdam). Binance i Bybit blokują część adresów z USA.
+4. **Networking:** wygeneruj publiczną domenę, żeby otworzyć panel.
+
+Bot musi działać w jednej kopii (`numReplicas: 1` w `railway.json`), inaczej zlecenia by się dublowały.
