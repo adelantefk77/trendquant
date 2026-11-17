@@ -111,7 +111,8 @@ if __name__ == "__main__":
     bot = Bot()
     threading.Thread(target=bot.run_forever, daemon=True).start()
     port = int(os.environ.get("PORT", "8080"))
-    mode = "konto demo Bybit, wirtualne środki" if bot.broker else "portfel wirtualny, bez zleceń"
+    from engine import VENUE
+    mode = f"konto demo {VENUE}, wirtualne środki" if bot.broker else "portfel wirtualny, bez zleceń"
     access = "z hasłem" if PASSWORD else ("tylko do odczytu, brak PANEL_PASSWORD" if not CONTROLS else "bez hasła")
     print(f"Panel na porcie {port} ({mode}; panel {access})", flush=True)
     ThreadingHTTPServer(("0.0.0.0", port), Handler).serve_forever()

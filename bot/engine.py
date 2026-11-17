@@ -159,7 +159,7 @@ class Bot:
         if s["initial_equity"] is None:
             eq = s["cash"] + sum(s["units"][a] * prices[a] for a in ASSETS)
             s["initial_equity"] = s["peak_equity"] = eq
-            self._event("info", f"Połączono z kontem demo {VENUE}. Kapitał na starcie: {eq:,.2f} USDT.".replace(",", " "))
+            self._event("info", f"Połączono z kontem demo {VENUE}. Kapitał na starcie: {eq:,.2f} {getattr(self.broker, 'quote', None) or 'USDT'}.".replace(",", " "))
 
     def _fill(self, a, delta, price, sell_all):
         """Wykonuje zmianę pozycji. Zwraca (ilość, cena, wartość, koszt w USDT) albo None."""
