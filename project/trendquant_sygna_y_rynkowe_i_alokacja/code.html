@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed-dim":"#adc6ff","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#ffb95f","on-tertiary-fixed-variant":"#653e00","error-container":"#93000a","tertiary":"#ffb95f","background":"#10141a","outline":"#8c909f","tertiary-container":"#ca8100","on-surface-variant":"#c2c6d6","secondary-fixed-dim":"#4edea3","primary-container":"#4d8eff","on-tertiary-container":"#3e2400","on-secondary-container":"#00311f","outline-variant":"#424754","on-primary-fixed-variant":"#004395","inverse-surface":"#dfe2eb","on-surface":"#dfe2eb","error":"#ffb4ab","surface-container-lowest":"#0a0e14","on-primary":"#002e6a","secondary-container":"#00a572","secondary-fixed":"#6ffbbe","surface-container-low":"#181c22","surface-dim":"#10141a","surface-container-highest":"#31353c","on-error-container":"#ffdad6","on-tertiary":"#472a00","on-secondary":"#003824","on-tertiary-fixed":"#2a1700","secondary":"#4edea3","surface-container-high":"#262a31","on-secondary-fixed-variant":"#005236","on-primary-container":"#00285d","on-error":"#690005","surface-variant":"#31353c","primary-fixed":"#d8e2ff","on-secondary-fixed":"#002113","surface-tint":"#adc6ff","inverse-primary":"#005ac2","tertiary-fixed":"#ffddb8","surface-container":"#1c2026","primary":"#adc6ff","surface-bright":"#353940","surface":"#10141a","on-background":"#dfe2eb","inverse-on-surface":"#2d3137"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2.5rem",gutter:"1rem","space-sm":"0.5rem","space-lg":"1.5rem",margin:"1rem"},fontFamily:{"data-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"],"display-lg":["Space Grotesk"],"data-md":["JetBrains Mono"],"body-sm":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"data-sm":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Inter"]},fontSize:{"data-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.03em",fontWeight:"600"}],"data-md":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],"data-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">TrendQuant</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Status: Monitoring UTC Daily Close</span></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-on-surface bg-surface-container-high rounded-DEFAULT"><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="przeglad-strategii" href="#">Przegląd Strategii</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sygnaly-i-alokacja" href="#">Sygnały i Alokacja</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dowody-empiryczne" href="#">Dowody Empiryczne</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="zarzadzanie-ryzykiem" href="#">Zarządzanie Ryzykiem</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="symulator-konfiguracja" href="#">Symulator / Konfiguracja</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden md:flex items-center gap-space-xs font-data-sm text-data-sm px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="text-secondary font-medium">BTC: 3/3 Głosy</span><span class="text-outline-variant">|</span><span class="text-tertiary font-medium">ETH: 2/3 Głosy</span></div><div class="flex items-center gap-space-sm"><a class="h-9 px-space-md flex items-center justify-center rounded-DEFAULT bg-primary font-label-caps text-label-caps text-on-primary uppercase transition-opacity hover:opacity-90" data-path="symulator-konfiguracja" href="#">Uruchom Paper-Trading</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Pasek Stanu Synchronizacji Silnika (Engine Telemetry Ribbon) -->
+<section class="w-full bg-surface-container-lowest px-gutter-desktop py-space-sm shadow-sm">
+<div class="max-w-7xl mx-auto flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Ostatnie zamknięcie UTC:</span>
+<span class="font-data-sm text-data-sm text-on-surface">00:00:00 UTC</span>
+<span class="font-data-sm text-data-sm text-secondary bg-surface-container-high px-space-xs rounded-DEFAULT">D1 ZATWIERDZONE</span>
+</div>
+<div class="hidden sm:inline-block w-px h-3 bg-surface-variant"></div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">hourglass_bottom</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Kolejka zleceń:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Limit w arkuszu (Maker fee optymalizacja -0.02% / 0.10%)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-sm py-1 rounded-DEFAULT">
+<span class="material-symbols-outlined text-[15px] text-tertiary">update</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Kolejny rebalans:</span>
+<span class="font-data-sm text-data-sm text-tertiary">3 dni, 14 godz.</span>
+<span class="font-label-caps text-label-caps text-outline">(Filtr odchylenia: &gt;3.5% drift)</span>
+</div>
+</div>
+</section>
+<!-- Główny Kontener Operacyjny -->
+<div class="max-w-7xl mx-auto px-gutter-desktop py-space-xl w-full flex flex-col gap-space-xl">
+<!-- Header Modułu: Kontekst Ilościowy & Zasada Nadrzędna -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md bg-surface-container-low p-space-lg rounded-DEFAULT">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-primary uppercase">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Reguła Han, Kang &amp; Ryu (2013) // Binary Voting</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Sygnały i Alokacja Portfela</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Deterministyczny silnik ważenia zmiennością (Inverse Volatility Budgeting) z trójstopniowym filtrem trendu SMA. Zlecenia wyłącznie spot bez dźwigni, redukcja obsunięć przez ucieczkę do bezpiecznych stablecoinów.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex flex-col text-right font-data-sm text-data-sm">
+<span class="text-outline uppercase text-[10px] tracking-widest font-label-caps">Ekspozycja Rynkowa</span>
+<span class="text-secondary font-headline-sm text-headline-sm">36.2% TOTAL</span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest rounded-DEFAULT flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">pie_chart</span>
+</div>
+</div>
+</div>
+<!-- Sekcja 1: Tablica Monitoringu Aktywów (BTC / ETH) -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MODUŁ 01 //</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Tablica Aktywów Bazowych</h2>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Próg wejścia: Daily Close &gt; SMA</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Karta BTC/USDT -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-md">
+<!-- Header Karty BTC -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-surface-container-highest flex items-center justify-center font-data-md text-data-md text-primary font-bold">
+                  ₿
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">BTC / USDT</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-space-xs rounded-DEFAULT">SPOT ONLY</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Bitcoin Core Quantitative Feed</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-data-lg text-data-lg text-on-surface">$68,420.00</span>
+<span class="font-data-sm text-data-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_up</span> +3.12% (24h)
+                </span>
+</div>
+</div>
+<!-- Mini Sparkline / Trend SVG -->
+<div class="w-full h-16 bg-surface-container-lowest rounded-DEFAULT p-space-xs flex flex-col justify-between">
+<div class="flex justify-between items-center text-[10px] font-label-caps text-outline">
+<span>HISTORIA 30D SMA MATRIX</span>
+<span class="text-secondary font-medium">Reżim Hossa (Cena &gt; Wszystkie SMA)</span>
+</div>
+<svg class="w-full h-9 text-secondary overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 300 40">
+<path d="M0,35 Q30,30 60,32 T120,24 T180,18 T240,12 T300,5" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M0,38 L300,28" opacity="0.6" stroke="#adc6ff" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<path d="M0,39 L300,32" opacity="0.4" stroke="#ffb95f" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<circle cx="300" cy="5" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+<!-- Matryca Średnich Kroczących -->
+<div class="space-y-space-xs bg-surface-container rounded-DEFAULT p-space-sm">
+<div class="text-[10px] font-label-caps text-outline uppercase tracking-wider mb-space-xs">Głosowanie Zbieżności Trendowej (3/3)</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 50d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$64,150</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs rounded-DEFAULT">CENA WYŻEJ (+1 GŁOS)</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 100d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$61,900</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs rounded-DEFAULT">CENA WYŻEJ (+1 GŁOS)</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 200d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$57,800</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs rounded-DEFAULT">CENA WYŻEJ (+1 GŁOS)</span>
+</div>
+</div>
+<!-- Metryki Ryzyka i Alokacja Wagowa -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-highest p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline block">60D VOLATILITY</span>
+<span class="font-data-md text-data-md text-on-surface">48.2% <span class="text-body-sm text-outline font-normal">rocznie</span></span>
+<span class="font-body-sm text-body-sm text-secondary block mt-0.5">Umiarkowany reżim ryzyka</span>
+</div>
+<div class="bg-surface-container-highest p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline block">TARGET POZYCJI</span>
+<span class="font-data-md text-data-md text-secondary">21.4% <span class="text-body-sm text-on-surface-variant font-normal">portfela</span></span>
+<span class="font-body-sm text-body-sm text-outline block mt-0.5">Waga skorygowana o zmienność</span>
+</div>
+</div>
+</div>
+<!-- Pasek Statusu Pozycji -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-lowest px-space-md py-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase font-semibold">Stan: Pozycja Otwarta (Long Spot)</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline font-medium">Egzekucja: 100% Zrealizowano</span>
+</div>
+</div>
+<!-- Karta ETH/USDT -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-tertiary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-md">
+<!-- Header Karty ETH -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-surface-container-highest flex items-center justify-center font-data-md text-data-md text-tertiary font-bold">
+                  Ξ
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">ETH / USDT</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-space-xs rounded-DEFAULT">SPOT ONLY</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Ethereum Core Quantitative Feed</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-data-lg text-data-lg text-on-surface">$3,410.00</span>
+<span class="font-data-sm text-data-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">horizontal_rule</span> -0.45% (24h)
+                </span>
+</div>
+</div>
+<!-- Mini Sparkline / Trend SVG -->
+<div class="w-full h-16 bg-surface-container-lowest rounded-DEFAULT p-space-xs flex flex-col justify-between">
+<div class="flex justify-between items-center text-[10px] font-label-caps text-outline">
+<span>HISTORIA 30D SMA MATRIX</span>
+<span class="text-tertiary font-medium">Reżim Przejściowy (Cena &lt; SMA 200d)</span>
+</div>
+<svg class="w-full h-9 text-tertiary overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 300 40">
+<path d="M0,15 Q40,35 90,20 T180,30 T240,25 T300,28" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M0,22 L300,24" opacity="0.6" stroke="#adc6ff" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<path d="M0,12 L300,10" opacity="0.8" stroke="#ffb95f" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<circle cx="300" cy="28" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+<!-- Matryca Średnich Kroczących -->
+<div class="space-y-space-xs bg-surface-container rounded-DEFAULT p-space-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-label-caps text-outline uppercase tracking-wider mb-space-xs">Głosowanie Zbieżności Trendowej (2/3)</span>
+<span class="text-[10px] font-label-caps text-tertiary">FILTR PRESJI SMA 200</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 50d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$3,320</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs rounded-DEFAULT">CENA WYŻEJ (+1 GŁOS)</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 100d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$3,180</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs rounded-DEFAULT">CENA WYŻEJ (+1 GŁOS)</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">SMA 200d:</span>
+<span class="font-data-sm text-data-sm text-on-surface">$3,520</span>
+</div>
+<span class="font-label-caps text-label-caps text-error bg-error-container/20 px-space-xs rounded-DEFAULT">CENA NIŻEJ (0 GŁOSÓW)</span>
+</div>
+</div>
+<!-- Metryki Ryzyka i Alokacja Wagowa -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-highest p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline block">60D VOLATILITY</span>
+<span class="font-data-md text-data-md text-on-surface">62.5% <span class="text-body-sm text-outline font-normal">rocznie</span></span>
+<span class="font-body-sm text-body-sm text-tertiary block mt-0.5">Wyższa zmienność = Auto-redukcja</span>
+</div>
+<div class="bg-surface-container-highest p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline block">TARGET POZYCJI</span>
+<span class="font-data-md text-data-md text-tertiary">14.8% <span class="text-body-sm text-on-surface-variant font-normal">portfela</span></span>
+<span class="font-body-sm text-body-sm text-outline block mt-0.5">Ograniczenie wagi ryzyka</span>
+</div>
+</div>
+</div>
+<!-- Pasek Statusu Pozycji -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-lowest px-space-md py-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">warning</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-semibold">Stan: Pozycja Częściowa (2/3)</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline font-medium">Zredukowano ekspozycję</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sekcja 2: Struktura Alokacji Portfela (Bieżący podział 100% kapitału) -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MODUŁ 02 //</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Struktura Alokacji Portfela (100% Kapitału)</h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-DEFAULT">
+<span class="material-symbols-outlined text-secondary text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps text-on-surface font-medium uppercase tracking-wider">Spot Execution: No Leverage</span>
+</div>
+</div>
+<!-- Linear visual allocation bar -->
+<div class="w-full flex flex-col gap-space-xs">
+<div class="h-6 w-full rounded-DEFAULT overflow-hidden flex bg-surface-container-highest">
+<div class="bg-primary hover:opacity-90 transition-all relative group" style="width: 21.4%;" title="BTC Spot: 21.4%"></div>
+<div class="bg-tertiary hover:opacity-90 transition-all relative group" style="width: 14.8%;" title="ETH Spot: 14.8%"></div>
+<div class="bg-surface-bright hover:opacity-90 transition-all relative group" style="width: 63.8%;" title="Gotówka / Stablecoiny: 63.8%"></div>
+</div>
+<div class="flex justify-between font-label-caps text-label-caps text-outline">
+<span>0%</span>
+<span>50%</span>
+<span>100% (SUMA ZBILANSOWANA)</span>
+</div>
+</div>
+<!-- Kafelki Składowych Portfela -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-container p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span> BTC SPOT
+            </span>
+<span class="font-data-lg text-data-lg text-on-surface">21.4%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            W pełnej hossie (3/3). Zredukowane wagowo przez limit budżetu ryzyka 60d.
+          </p>
+<div class="mt-space-sm pt-space-xs flex justify-between font-data-sm text-data-sm text-outline">
+<span>Szacunek USD:</span>
+<span class="text-on-surface font-medium">$214,000.00</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block"></span> ETH SPOT
+            </span>
+<span class="font-data-lg text-data-lg text-on-surface">14.8%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            Pozycja obcięta do 2/3 ze względu na opór pod 200 SMA oraz wyższą zmienność (62.5%).
+          </p>
+<div class="mt-space-sm pt-space-xs flex justify-between font-data-sm text-data-sm text-outline">
+<span>Szacunek USD:</span>
+<span class="text-on-surface font-medium">$148,000.00</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span> GOTÓWKA / STABLECOINY
+            </span>
+<span class="font-data-lg text-data-lg text-secondary">63.8%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            Rezerwa USDC/fiat. Bufor drawdownu chroniący zysk wypracowany w fazie trendowej.
+          </p>
+<div class="mt-space-sm pt-space-xs flex justify-between font-data-sm text-data-sm text-outline">
+<span>Szacunek USD:</span>
+<span class="text-secondary font-medium">$638,000.00</span>
+</div>
+</div>
+</div>
+<!-- Karta Gwarancji Bezpieczeństwa Matematycznego -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm bg-surface-container-lowest p-space-md rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Zero Dźwigni Finansowej</span>
+<span class="font-body-sm text-body-sm text-outline">Brak ryzyka kaskadowej likwidacji</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Brak Kosztów Funding Rate</span>
+<span class="font-body-sm text-body-sm text-outline">0.00% opłat overnight za trzymanie</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Kapitał w Cold/Custody API</span>
+<span class="font-body-sm text-body-sm text-outline">Brak uprawnień transferu / wypłat</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sekcja 3: Historia Sygnałów i Zmian Alokacji (Rejestr audytowalny) -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-xs">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MODUŁ 03 //</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Rejestr Zmian Alokacji i Egzekucji Sygnałów</h2>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Audytowalny log transakcyjny API (UTC 00:00)</span>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm text-on-surface">
+<thead class="bg-surface-container font-label-caps text-label-caps text-outline uppercase">
+<tr>
+<th class="py-space-sm px-space-md">Data UTC</th>
+<th class="py-space-sm px-space-md">Para</th>
+<th class="py-space-sm px-space-md">Sygnał SMA</th>
+<th class="py-space-sm px-space-md text-right">Koszt Wykonania</th>
+<th class="py-space-sm px-space-md">Kierunek / Zmiana</th>
+<th class="py-space-sm px-space-md">Powód Egzekucji</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest">
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface-variant">2025-02-18 00:02:11</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface font-semibold">ETH/USDT</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-tertiary">Spadek &lt; SMA 200d ($3,520)</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-right text-secondary">
+                0.08% <span class="text-outline text-[10px]">(Maker 0.08% + Slip 0.00%)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-caps text-label-caps text-tertiary bg-tertiary/10 px-space-xs py-0.5 rounded-DEFAULT">
+                  REDUKCJA 22.0% → 14.8%
+                </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-body-sm text-body-sm">
+                Utrata 1 głosu (2/3) + wzrost zmienności 60d do 62.5%
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface-variant">2025-02-11 00:01:45</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface font-semibold">BTC/USDT</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-secondary">Wybicie &gt; SMA 50d ($64,150)</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-right text-secondary">
+                0.09% <span class="text-outline text-[10px]">(Maker 0.08% + Slip 0.01%)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs py-0.5 rounded-DEFAULT">
+                  DOKUPIENIE 15.0% → 21.4%
+                </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-body-sm text-body-sm">
+                Odnowienie pełnego konsensusu 3/3 po korekcie lokalnej
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface-variant">2025-01-28 00:03:02</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface font-semibold">PORTFEL</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-outline">Rebalans Tygodniowy (Drift)</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-right text-secondary">
+                0.07% <span class="text-outline text-[10px]">(Maker limit batch)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-xs py-0.5 rounded-DEFAULT">
+                  REBALANS WAG DRYWUJĄCYCH
+                </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-body-sm text-body-sm">
+                Drift przekroczył próg &gt;3.5% (BTC wzrósł szybciej od ETH)
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface-variant">2025-01-14 00:01:29</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface font-semibold">ETH/USDT</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-secondary">Wybicie &gt; SMA 100d ($3,180)</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-right text-secondary">
+                0.10% <span class="text-outline text-[10px]">(Maker 0.08% + Slip 0.02%)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-space-xs py-0.5 rounded-DEFAULT">
+                  ZWIĘKSZENIE 10.0% → 22.0%
+                </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-body-sm text-body-sm">
+                Aktywacja drugiego stopnia trendu (SMA 50 + SMA 100)
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface-variant">2024-12-30 00:00:55</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-on-surface font-semibold">BTC/USDT</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-secondary">Kontynuacja &gt; SMA 200d</td>
+<td class="py-space-md px-space-md font-data-sm text-data-sm text-right text-secondary">
+                0.08% <span class="text-outline text-[10px]">(Maker limit)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-caps text-label-caps text-outline bg-surface-container-high px-space-xs py-0.5 rounded-DEFAULT">
+                  UTRZYMANIE POZYCJI
+                </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-body-sm text-body-sm">
+                Brak naruszenia progów tolerancji dryfu (&lt;3.5%)
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Sekcja 4: Panel Konfiguracji Parametrów Stałych (Anti-Overfitting Directive) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Panel Nienaruszalnej Zasady Matematycznej -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-DEFAULT p-space-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">gavel</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">ZASADA NIENARUSZALNA SILNIKA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">
+            Stałe Parametry Bazowe (50, 100, 200) Bez Strojenia Curve-Fitting
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Średnie kroczące SMA 50, 100 i 200 dni zostały zdefiniowane apriorycznie w badaniu Han, Kang &amp; Ryu (2013). Algorytm <strong class="text-on-surface font-medium">nie optymalizuje</strong> tych okien czasowych pod kątem bieżącego wyniku, eliminując błąd przeoptymalizowania (data snooping bias). Zmiana tych wartości w locie jest systemowo zablokowana w kodzie silnika C++ core.
+          </p>
+</div>
+<div class="mt-space-md grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-md">
+<div class="bg-surface-container p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline">OKNO SMA 1</span>
+<span class="font-data-md text-data-md text-primary block mt-0.5">50 DNI (D1)</span>
+<span class="text-[11px] text-on-surface-variant font-body-sm">Krótkoterminowy pęd cenowy</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline">OKNO SMA 2</span>
+<span class="font-data-md text-data-md text-primary block mt-0.5">100 DNI (D1)</span>
+<span class="text-[11px] text-on-surface-variant font-body-sm">Średnioterminowy filtr siły</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-outline">OKNO SMA 3</span>
+<span class="font-data-md text-data-md text-primary block mt-0.5">200 DNI (D1)</span>
+<span class="text-[11px] text-on-surface-variant font-body-sm">Granica reżimu bessa/hossa</span>
+</div>
+</div>
+</div>
+<!-- Filtry Kosztowe i Progi Tolerancji Rebalansu -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">TOLERANCJE I KOSZTY</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">
+            Ochrona Przed Churningiem
+          </h3>
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center bg-surface-container p-space-sm rounded-DEFAULT">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Próg Dryfu Wagowego</span>
+<span class="font-body-sm text-body-sm text-outline">Minimalne odchylenie alokacji</span>
+</div>
+<span class="font-data-md text-data-md text-secondary">&gt; 3.5%</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container p-space-sm rounded-DEFAULT">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Model Zleceń API</span>
+<span class="font-body-sm text-body-sm text-outline">Tylko Post-Only Limit</span>
+</div>
+<span class="font-data-md text-data-md text-primary">MAKER ONLY</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container p-space-sm rounded-DEFAULT">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Częstotliwość Oceny</span>
+<span class="font-body-sm text-body-sm text-outline">Interwał ewaluacji świecy</span>
+</div>
+<span class="font-data-md text-data-md text-on-surface">24H (00:00 UTC)</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<button class="w-full h-9 px-space-md bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-caps text-label-caps uppercase rounded-DEFAULT flex items-center justify-center gap-space-xs transition-colors" id="triggerAuditButton">
+<span class="material-symbols-outlined text-[16px] text-primary">receipt_long</span>
+<span>Generuj Raport Audytowy JSON</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interaction Script -->
+<script>
+    document.getElementById('triggerAuditButton')?.addEventListener('click', function() {
+      const originalText = this.innerHTML;
+      this.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin text-secondary">sync</span> <span>Eksportowanie do formatu SHA-256...</span>';
+      setTimeout(() => {
+        this.innerHTML = '<span class="material-symbols-outlined text-[16px] text-secondary">check</span> <span>Pobrano: TrendQuant_Allocation_Audit_20250218.json</span>';
+        setTimeout(() => {
+          this.innerHTML = originalText;
+        }, 3000);
+      }, 750);
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-gutter-desktop py-space-xl"><div class="flex flex-col md:flex-row items-start justify-between gap-space-lg mb-space-lg"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-7 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-sm text-headline-sm text-on-surface uppercase">TrendQuant Spot</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-on-surface-variant"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">shield</span> Spot Only (No Leverage)</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">key</span> Read / Trade API</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">menu_book</span> Han, Kang &amp; Ryu (2013)</span></div></div><div class="rounded-DEFAULT bg-surface-container-low p-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">System badawczy bazujący na literaturze akademickiej (Han, Kang &amp; Ryu). To nie jest porada inwestycyjna. Handel spot bez dźwigni, klucze API bez prawa wypłaty (read/trade only). Wszystkie modele podlegają ryzyku obsunięcia kapitału.</p></div><div class="mt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm font-data-sm text-data-sm text-outline"><p>© TrendQuant Quantitative Research. Wszelkie prawa zastrzeżone.</p><p class="text-right">Engine v2.4.1-alpha // Rebalance 00:00 UTC</p></div></div></footer></body></html>

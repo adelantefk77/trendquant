@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrendQuant · handel na papierze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#10141a;--lowest:#0a0e14;--low:#181c22;--cont:#1c2026;--high:#262a31;--highest:#31353c;
+  --ink:#dfe2eb;--ink2:#c2c6d6;--outline:#8c909f;--line:#424754;--hair:#262a31;
+  --primary:#adc6ff;--primary-c:#4d8eff;--on-primary:#002e6a;
+  --green:#4edea3;--amber:#ffb95f;--red:#ffb4ab;
+  --sma50:#3b82f6;--sma100:#8b5cf6;--sma200:#f59e0b;
+  --f-head:"Space Grotesk",system-ui,sans-serif;--f-body:Inter,system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/22px var(--f-body);-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.caps{font:600 11px/14px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--outline)}
+.green{color:var(--green)}.amber{color:var(--amber)}.red{color:var(--red)}.dim{color:var(--outline)}.pri{color:var(--primary)}
+
+/* pasek górny */
+.top{position:sticky;top:0;z-index:10;background:rgba(16,20,26,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)}
+.top .row{height:64px;display:flex;align-items:center;gap:16px;padding:0 24px}
+.brand{display:flex;align-items:center;gap:8px;font:500 20px/28px var(--f-head);letter-spacing:-.01em;text-transform:uppercase}
+.brand i{display:grid;place-items:center;width:32px;height:32px;border-radius:4px;background:var(--high);border:1px solid var(--line);font:600 12px var(--f-mono);font-style:normal;color:var(--primary)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:4px;background:var(--low);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
+.dot.pulse{animation:pulse 2s infinite}
+.dot.bad{background:var(--amber)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(78,222,163,.5)}70%{box-shadow:0 0 0 6px rgba(78,222,163,0)}100%{box-shadow:0 0 0 0 rgba(78,222,163,0)}}
+nav{display:flex;gap:4px;margin-left:8px}
+nav a{padding:6px 10px;color:var(--ink2);text-decoration:none;border-radius:4px}
+nav a:hover{background:var(--cont);color:var(--ink)}
+.spacer{flex:1}
+.btn{height:36px;padding:0 16px;border-radius:4px;border:1px solid var(--line);background:transparent;color:var(--ink2);font:500 12px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.btn:hover{color:var(--ink);border-color:var(--outline)}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{background:#c4d6ff}
+.sub{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;padding:10px 24px;background:var(--lowest);border-bottom:1px solid var(--hair);font-size:12px}
+.sub b{font:500 12px var(--f-mono);color:var(--ink)}
+.badge{display:inline-block;padding:2px 6px;border-radius:2px;font:600 11px/14px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;border:1px solid}
+.badge.g{background:rgba(78,222,163,.08);border-color:rgba(78,222,163,.3);color:var(--green)}
+.badge.a{background:rgba(255,185,95,.08);border-color:rgba(255,185,95,.3);color:var(--amber)}
+.badge.r{background:rgba(255,180,171,.08);border-color:rgba(255,180,171,.3);color:var(--red)}
+.badge.n{background:var(--high);border-color:var(--line);color:var(--ink2)}
+.badge.p{background:rgba(173,198,255,.08);border-color:rgba(173,198,255,.3);color:var(--primary)}
+
+main{max-width:1360px;margin:0 auto;padding:24px 24px 40px;display:grid;gap:24px}
+.panel{background:var(--low);border:1px solid var(--hair);border-radius:8px;padding:24px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+h1{font:600 32px/40px var(--f-head);letter-spacing:-.02em;margin:8px 0}
+h2{font:500 20px/28px var(--f-head);letter-spacing:-.01em;margin:0}
+.lead{max-width:680px;color:var(--ink2);margin:0}
+.modhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.modhead .caps{margin-right:8px}
+.expo{text-align:right}
+.expo strong{font:500 24px/32px var(--f-mono);color:var(--green);display:block}
+
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{background:var(--cont);border:1px solid var(--hair);border-radius:4px;padding:16px;min-width:0}
+.tile .v{font:500 24px/32px var(--f-mono);font-variant-numeric:tabular-nums;margin-top:8px;letter-spacing:-.02em}
+.tile .s{font-size:12px;line-height:18px;color:var(--outline);margin-top:4px}
+
+/* karty aktywów */
+.asset .hd{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.asset .sym{display:flex;gap:12px;align-items:center}
+.asset .ico{display:grid;place-items:center;width:40px;height:40px;border-radius:4px;background:var(--high);font:600 14px var(--f-mono);color:var(--primary)}
+.asset .name{font:600 16px/24px var(--f-body)}
+.asset .name span{font:600 11px var(--f-mono);letter-spacing:.06em;color:var(--outline);margin-left:6px}
+.asset .px{text-align:right}
+.asset .px b{font:500 24px/32px var(--f-mono);font-variant-numeric:tabular-nums;display:block}
+.chartbox{background:var(--lowest);border:1px solid var(--hair);border-radius:4px;margin:16px 0;padding:8px 8px 4px;position:relative}
+.chartbox .cap{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:0 4px 4px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font:400 11px var(--f-mono);color:var(--outline)}
+.legend i{display:inline-block;width:10px;height:2px;margin-right:5px;vertical-align:middle}
+svg{display:block;width:100%;height:auto}
+svg text{font:400 10px var(--f-mono);fill:var(--outline)}
+.votes{display:grid;gap:6px;margin-bottom:16px}
+.vote{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 10px;background:var(--cont);border-radius:4px}
+.vote .l{display:flex;align-items:center;gap:8px;font:400 12px var(--f-mono)}
+.vote .l i{width:8px;height:8px;border-radius:50%}
+.state{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:16px;padding:10px 12px;background:var(--lowest);border-radius:4px}
+
+/* alokacja */
+.bar{display:flex;height:16px;background:var(--highest);border-radius:2px;overflow:hidden;gap:2px}
+.bar div{height:100%;min-width:0;transition:width .4s}
+.scale{display:flex;justify-content:space-between;margin:6px 0 16px}
+.alloc .top2{display:flex;justify-content:space-between;align-items:baseline}
+.alloc .pct{font:500 24px/32px var(--f-mono)}
+.kv{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font:400 12px var(--f-mono)}
+.kv span:first-child{color:var(--outline)}
+
+/* tabela */
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th{font:600 11px/14px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--outline);text-align:left;padding:10px 12px;background:var(--cont)}
+td{padding:12px;border-bottom:1px solid var(--hair);vertical-align:top;font-size:13px}
+tr:hover td{background:var(--cont)}
+td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.empty{padding:32px;text-align:center;color:var(--outline)}
+.tip{position:absolute;pointer-events:none;display:none;z-index:5;background:var(--high);border:1px solid var(--line);border-radius:4px;padding:8px 10px;font:400 11px/16px var(--f-mono);white-space:nowrap;box-shadow:0 8px 32px -4px rgba(0,0,0,.65)}
+.tip b{display:block;color:var(--ink);margin-bottom:2px}
+.tip span{float:right;margin-left:14px;color:var(--ink)}
+.tip i{display:inline-block;width:8px;height:2px;margin-right:6px;vertical-align:middle}
+.events{display:grid;gap:8px;max-height:260px;overflow:auto}
+.events div{padding:8px 10px;background:var(--cont);border-radius:4px;font-size:12px;line-height:18px}
+.banner{display:none;padding:12px 16px;border-radius:4px;border:1px solid rgba(255,185,95,.3);background:rgba(255,185,95,.08);color:var(--amber)}
+footer{border-top:1px solid var(--hair);background:var(--lowest);padding:24px;color:var(--outline);font-size:12px;line-height:18px}
+footer .in{max-width:1360px;margin:0 auto}
+.top .row>*{flex:none}
+.top .row>.spacer{flex:1}
+.top .chip:first-of-type{flex:0 1 auto;min-width:0;overflow:hidden}
+#st-text{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:1500px){nav{display:none}}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.g2,.g3{grid-template-columns:1fr}.top .row{padding:0 16px;gap:8px}main{padding:16px}.panel{padding:16px}h1{font-size:24px;line-height:32px}.hide-sm{display:none}}
+@media (max-width:520px){.g4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="row">
+    <div class="brand"><i>TQ</i>TrendQuant</div>
+    <div class="chip hide-sm"><span class="dot pulse" id="st-dot"></span><span class="caps" id="st-text">Łączenie</span></div>
+    <nav><a href="#m1">Sygnały</a><a href="#m2">Alokacja</a><a href="#m3">Kapitał</a><a href="#m4">Rejestr</a><a href="#m5">Parametry</a></nav>
+    <div class="spacer"></div>
+    <div class="chip mono hide-sm" id="votes-chip" style="font-size:12px">–</div>
+    <span class="badge p" id="mode-badge">Papier</span>
+    <button class="btn primary" id="pause-btn">Wstrzymaj</button>
+  </div>
+  <div class="sub">
+    <span><span class="caps">Ostatni sygnał (zamknięcie UTC): </span><b id="sig-date">–</b></span>
+    <span><span class="caps">Kolejna ocena za: </span><b class="amber" id="next-eval">–</b></span>
+    <span><span class="caps">Dane z: </span><b id="updated">–</b></span>
+    <span class="dim" id="mode-note">Wirtualny portfel. Bot nie składa prawdziwych zleceń i nie ma kluczy API.</span>
+  </div>
+</header>
+
+<main>
+  <div class="banner" id="banner"></div>
+
+  <section class="panel hero">
+    <div>
+      <div class="caps pri">Reguła: głosowanie SMA 50/100/200 // long-flat // spot</div>
+      <h1>Sygnały i alokacja portfela</h1>
+      <p class="lead">Bot raz na dobę, po zamknięciu świecy dziennej UTC, liczy głosy trzech średnich kroczących dla BTC i ETH. Wielkość pozycji maleje, gdy rośnie zmienność. Bez dźwigni: reszta kapitału zostaje w gotówce.</p>
+    </div>
+    <div class="expo"><div class="caps">Ekspozycja rynkowa</div><strong class="mono" id="expo">–</strong></div>
+  </section>
+
+  <section class="grid g4">
+    <div class="tile"><div class="caps">Wartość portfela</div><div class="v" id="k-eq">–</div><div class="s" id="k-eq-s">–</div></div>
+    <div class="tile"><div class="caps">Wynik od startu</div><div class="v" id="k-pnl">–</div><div class="s" id="k-pnl-s">–</div></div>
+    <div class="tile"><div class="caps">Obsunięcie od szczytu</div><div class="v" id="k-dd">–</div><div class="s" id="k-dd-s">–</div></div>
+    <div class="tile"><div class="caps">Transakcje i koszty</div><div class="v" id="k-tr">–</div><div class="s" id="k-tr-s">–</div></div>
+  </section>
+
+  <section id="m1">
+    <div class="modhead"><div><span class="caps">Moduł 01 //</span><h2 style="display:inline">Tablica aktywów</h2></div><span class="mono dim" style="font-size:12px">Głos = zamknięcie dnia powyżej średniej</span></div>
+    <div class="grid g2" id="assets"></div>
+  </section>
+
+  <section class="panel" id="m2">
+    <div class="modhead"><div><div class="caps">Moduł 02 //</div><h2>Struktura portfela</h2></div><span class="badge n">Spot, bez dźwigni</span></div>
+    <div class="bar" id="alloc-bar"></div>
+    <div class="scale caps"><span>0%</span><span>50%</span><span>100%</span></div>
+    <div class="grid g3" id="alloc-tiles"></div>
+  </section>
+
+  <section class="panel" id="m3">
+    <div class="modhead"><div><div class="caps">Moduł 03 //</div><h2>Wartość portfela w czasie</h2></div><span class="mono dim" style="font-size:12px" id="eq-note"></span></div>
+    <div class="chartbox" style="margin:0" id="eq-box"></div>
+  </section>
+
+  <section class="panel" id="m4">
+    <div class="modhead"><div><div class="caps">Moduł 04 //</div><h2 id="trades-title">Rejestr wirtualnych transakcji</h2></div><span class="mono dim" style="font-size:12px">Najnowsze na górze</span></div>
+    <div class="tablewrap" id="trades"></div>
+  </section>
+
+  <section class="grid g2" id="m5">
+    <div class="panel">
+      <div class="caps amber">Stałe parametry, bez strojenia</div>
+      <h2 style="margin:8px 0 16px">Reguły silnika</h2>
+      <div class="grid g3" id="params"></div>
+    </div>
+    <div class="panel">
+      <div class="caps">Dziennik zdarzeń</div>
+      <h2 style="margin:8px 0 16px">Alarmy i działania operatora</h2>
+      <div class="events" id="events"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="in" id="foot">
+  Handel na papierze: wszystkie transakcje są wirtualne, wyceniane po publicznych cenach spot z Binance. To narzędzie badawcze, a nie porada inwestycyjna. Wyniki symulacji nie gwarantują wyników na prawdziwym rynku.
+</div></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num=(x,d=2)=>x.toLocaleString("pl-PL",{minimumFractionDigits:d,maximumFractionDigits:d});
+const usd=(x,d=2)=>num(x,d)+" USDT";
+const pct=(x,d=1)=>num(x*100,d)+"%";
+const sgn=(x,f)=>(x>0?"+":x<0?"−":"")+f(Math.abs(x));
+const NAMES={BTCUSDT:["BTC / USDT","B"],ETHUSDT:["ETH / USDT","E"]};
+const SMA=[[50,"var(--sma50)"],[100,"var(--sma100)"],[200,"var(--sma200)"]];
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+let S=null,busy=false;
+
+/* Wykres liniowy z podglądem wartości pod kursorem. series: [{name,color,width,values}] */
+function lineChart(box,dates,series,o){
+  const W=o.w||640,H=o.h||150,m={l:o.axis?64:6,r:8,t:6,b:o.axis?20:6};
+  const all=series.flatMap(s=>s.values).filter(v=>v!=null);
+  let lo=Math.min(...all),hi=Math.max(...all);if(hi===lo){hi+=1;lo-=1}
+  const pad=(hi-lo)*.06;lo-=pad;hi+=pad;
+  const n=dates.length,x=i=>m.l+(W-m.l-m.r)*(n>1?i/(n-1):.5),y=v=>m.t+(H-m.t-m.b)*(1-(v-lo)/(hi-lo));
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":o.label});
+  for(let g=0;g<=3;g++){const v=lo+(hi-lo)*g/3;
+    el("line",{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:"var(--high)","stroke-dasharray":"3 3"},svg);
+    if(o.axis)el("text",{x:m.l-6,y:y(v)+3,"text-anchor":"end"},svg).textContent=num(v,0)}
+  if(o.axis&&n>1){[0,Math.floor((n-1)/2),n-1].forEach((i,k)=>el("text",{x:x(i),y:H-5,"text-anchor":k===0?"start":k===2?"end":"middle"},svg).textContent=dates[i])}
+  if(o.base!=null&&o.base>lo&&o.base<hi)el("line",{x1:m.l,x2:W-m.r,y1:y(o.base),y2:y(o.base),stroke:"var(--outline)","stroke-dasharray":"2 4"},svg);
+  series.forEach(s=>{let d="",pen=false;s.values.forEach((v,i)=>{if(v==null){pen=false;return}d+=(pen?"L":"M")+x(i).toFixed(1)+" "+y(v).toFixed(1);pen=true});
+    el("path",{d,fill:"none",stroke:s.color,"stroke-width":s.width||1.5,"stroke-linejoin":"round","stroke-linecap":"round"},svg)});
+  const last=series[0].values[n-1];
+  if(last!=null)el("circle",{cx:x(n-1),cy:y(last),r:3.5,fill:series[0].color,stroke:"var(--lowest)","stroke-width":2},svg);
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--outline)","stroke-dasharray":"1 3",visibility:"hidden"},svg);
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  let tip=box.querySelector(".tip");if(!tip){tip=document.createElement("div");tip.className="tip";box.appendChild(tip)}
+  hit.addEventListener("pointermove",ev=>{
+    const b=svg.getBoundingClientRect(),sx=(ev.clientX-b.left)*W/b.width;
+    const i=Math.max(0,Math.min(n-1,Math.round((sx-m.l)/(W-m.l-m.r)*(n-1))));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("visibility","visible");
+    tip.innerHTML="<b>"+esc(dates[i])+"</b>"+series.map(s=>`<div><i style="background:${s.color}"></i>${esc(s.name)}<span>${s.values[i]==null?"–":num(s.values[i],2)}</span></div>`).join("");
+    tip.style.display="block";
+    const cb=box.getBoundingClientRect(),px=ev.clientX-cb.left;
+    tip.style.left=(px>cb.width/2?px-tip.offsetWidth-12:px+12)+"px";tip.style.top=Math.max(0,ev.clientY-cb.top-20)+"px"});
+  hit.addEventListener("pointerleave",()=>{tip.style.display="none";cross.setAttribute("visibility","hidden")});
+  return svg;
+}
+
+function regime(v){return v===3?["Trend wzrostowy (3/3)","g"]:v===0?["Poza rynkiem (0/3)","n"]:[`Trend częściowy (${v}/3)`,"a"]}
+
+function renderAssets(){
+  const host=$("assets");host.innerHTML="";
+  S.assets.forEach(a=>{
+    const [nm,ic]=NAMES[a.symbol]||[a.symbol,"?"],[rg,rc]=regime(a.votes??0),ch=a.change_24h;
+    const card=document.createElement("div");card.className="panel asset";
+    card.innerHTML=`
+      <div class="hd"><div class="sym"><div class="ico">${ic}</div><div><div class="name">${nm}<span>SPOT</span></div><div class="mono dim" style="font-size:12px">Sygnał z ${esc(a.signal_date)}</div></div></div>
+        <div class="px"><b>${num(a.price,2)}</b><span class="mono ${ch>=0?"green":"amber"}" style="font-size:12px">${sgn(ch,pct)} od zamknięcia</span></div></div>
+      <div class="chartbox"><div class="cap"><span class="caps">Cena i średnie, 120 dni</span><span class="badge ${rc}">${rg}</span></div><div class="ch"></div>
+        <div class="legend" style="padding:6px 4px 4px"><span><i style="background:var(--ink)"></i>Cena</span>${SMA.map(([m,c])=>`<span><i style="background:${c}"></i>SMA ${m}</span>`).join("")}</div></div>
+      <div class="caps" style="margin-bottom:8px">Głosowanie trendu (${a.votes??"–"}/3)</div>
+      <div class="votes">${SMA.map(([m,c])=>{const s=a.smas?a.smas[m]:null,up=s!=null&&a.signal_close>s;
+        return `<div class="vote"><span class="l"><i style="background:${c}"></i>SMA ${m}d: ${s==null?"–":num(s,2)}</span><span class="badge ${up?"g":"r"}">${up?"Cena wyżej (+1 głos)":"Cena niżej (0 głosów)"}</span></div>`}).join("")}</div>
+      <div class="grid g2">
+        <div class="tile"><div class="caps">Zmienność 60 dni</div><div class="mono" style="margin-top:6px">${a.vol==null?"–":pct(a.vol)} <span class="dim">rocznie</span></div><div class="s">Wyższa zmienność zmniejsza pozycję</div></div>
+        <div class="tile"><div class="caps">Pozycja: cel / teraz</div><div class="mono" style="margin-top:6px"><span class="green">${pct(a.target_w)}</span> <span class="dim">/</span> ${pct(a.current_w)}</div><div class="s">Udział w portfelu</div></div>
+      </div>
+      <div class="state"><span class="caps ${a.value>=1?"green":""}">Stan: ${a.value>=1?"pozycja otwarta (long spot)":"brak pozycji (gotówka)"}</span><span class="mono dim" style="font-size:12px">${num(a.units,6)} szt. · ${usd(a.value)}</span></div>`;
+    host.appendChild(card);
+    const h=a.history,box=card.querySelector(".chartbox");
+    card.querySelector(".ch").appendChild(lineChart(box,h.map(r=>r.date),[
+      {name:"Cena",color:"var(--ink)",width:1.5,values:h.map(r=>r.close)},
+      ...SMA.map(([m,c])=>({name:"SMA "+m,color:c,width:m===200?2:1.5,values:h.map(r=>r["sma"+m])}))],{h:150,label:"Cena i średnie kroczące "+nm}));
+  });
+}
+
+function render(){
+  const p=S.portfolio,st=S.status,demo=S.mode==="bybit_demo";
+  $("mode-badge").textContent=demo?"Bybit demo":"Papier";
+  $("mode-note").textContent=demo?"Zlecenia trafiają na konto demo Bybit (wirtualne środki). Sygnały liczone z cen spot Binance.":"Wirtualny portfel. Bot nie składa prawdziwych zleceń i nie ma kluczy API.";
+  $("trades-title").textContent=demo?"Rejestr zleceń na koncie demo":"Rejestr wirtualnych transakcji";
+  if(demo)$("foot").textContent="Konto demo Bybit: zlecenia są prawdziwymi zleceniami w środowisku demo, ale środki są wirtualne. To narzędzie badawcze, a nie porada inwestycyjna. Wyniki na demo nie gwarantują wyników na prawdziwym rynku.";
+  $("st-dot").className="dot "+(st.data_ok&&!S.paused?"pulse":"bad");
+  $("st-text").textContent=st.message||"";
+  $("pause-btn").textContent=S.paused?"Wznów":"Wstrzymaj";
+  $("pause-btn").className="btn"+(S.paused?" primary":"");
+  $("sig-date").textContent=S.last_signal_date||"–";
+  $("updated").textContent=st.updated_at?st.updated_at.replace("T"," ").replace("Z"," UTC"):"–";
+  const bn=$("banner"),msgs=[];
+  if(!st.data_ok)msgs.push(esc(st.message)+(st.last_error?" ("+esc(st.last_error)+")":""));
+  if(S.alert_active)msgs.push("Alarm: obsunięcie portfela przekroczyło próg "+pct(S.config.dd_alert,0)+". Bot nie sprzedaje automatycznie, przejrzyj sytuację.");
+  if(S.paused)msgs.push("Bot jest wstrzymany. Sygnały są pomijane do czasu wznowienia.");
+  bn.style.display=msgs.length?"block":"none";bn.innerHTML=msgs.join("<br>");
+  if(!p)return;
+  $("votes-chip").innerHTML=S.assets.map(a=>`<span class="${a.votes===3?"green":a.votes===0?"dim":"amber"}">${a.symbol.replace("USDT","")}: ${a.votes??"–"}/3 głosy</span>`).join('<span class="dim"> | </span>');
+  $("expo").textContent=pct(p.exposure)+" łącznie";
+  $("k-eq").textContent=usd(p.equity);$("k-eq-s").textContent=(demo?"Saldo demo przy podłączeniu ":"Kapitał początkowy ")+usd(p.initial,demo?2:0);
+  $("k-pnl").textContent=sgn(p.pnl,usd);$("k-pnl").className="v "+(p.pnl>0?"green":p.pnl<0?"amber":"");$("k-pnl-s").textContent=sgn(p.pnl_pct,x=>pct(x,2))+" od startu";
+  $("k-dd").textContent=p.drawdown<0?"−"+pct(-p.drawdown,2):pct(0,2);$("k-dd").className="v "+(S.alert_active?"amber":"");
+  $("k-dd-s").innerHTML=`Szczyt ${usd(p.peak,0)} · alarm przy −${pct(S.config.dd_alert,0)}`;
+  $("k-tr").textContent=p.trade_count;$("k-tr-s").textContent="Koszty łącznie "+usd(p.fees_paid);
+  renderAssets();
+  const parts=S.assets.map((a,i)=>({name:a.symbol.replace("USDT","")+" spot",w:a.current_w,val:a.value,color:i?"var(--amber)":"var(--primary)",
+    note:`Cel ${pct(a.target_w)} · ${a.votes??"–"}/3 głosy`})).concat([{name:"Gotówka (USDT)",w:p.cash/p.equity,val:p.cash,color:"var(--green)",note:"Bufor poza rynkiem"}]);
+  $("alloc-bar").innerHTML=parts.slice(0,2).map(x=>`<div style="width:${(x.w*100).toFixed(2)}%;background:${x.color}" title="${esc(x.name)} ${pct(x.w)}"></div>`).join("");
+  $("alloc-tiles").innerHTML=parts.map(x=>`<div class="tile alloc"><div class="top2"><span class="caps"><span class="dot" style="display:inline-block;background:${x.color};margin-right:6px"></span>${esc(x.name)}</span><span class="pct mono">${pct(x.w)}</span></div><div class="s">${esc(x.note)}</div><div class="kv"><span>Wartość:</span><span>${usd(x.val)}</span></div></div>`).join("");
+  const eh=S.equity_history.concat([{date:"teraz",equity:p.equity}]),eb=$("eq-box");
+  eb.innerHTML="";
+  if(eh.length<3){eb.innerHTML='<div class="empty">Krzywa pojawi się po kilku dniach działania bota. Punkt przybywa raz na dobę.</div>';$("eq-note").textContent=""}
+  else{eb.appendChild(lineChart(eb,eh.map(r=>r.date),[{name:"Portfel",color:"var(--primary)",width:2,values:eh.map(r=>r.equity)}],{w:1280,h:260,axis:true,base:p.initial,label:"Wartość portfela w czasie"}));
+    const rp=S.equity_history.filter(r=>r.replay).length;$("eq-note").textContent=(rp?rp+" pkt odtworzonych z historii · ":"")+"linia przerywana = kapitał początkowy"}
+  $("trades").innerHTML=S.trades.length?`<table><thead><tr><th>Data UTC</th><th>Para</th><th>Kierunek</th><th class="num">Ilość</th><th class="num">Cena</th><th class="num">Wartość</th><th class="num">Koszt</th><th>Udział</th><th>Powód</th></tr></thead><tbody>${
+    S.trades.map(t=>`<tr><td class="mono">${esc(t.date)}${t.replay?' <span class="badge n">odtworzona</span>':""}</td><td class="mono">${esc(t.symbol.replace("USDT","/USDT"))}</td><td><span class="badge ${t.side==="KUPNO"?"g":"a"}">${esc(t.side)}</span></td><td class="num">${num(t.qty,6)}</td><td class="num">${num(t.price,2)}</td><td class="num">${num(t.notional,2)}</td><td class="num">${num(t.fee,2)}</td><td class="mono">${pct(t.w_from)} → ${pct(t.w_to)}</td><td>${esc(t.reason)}${t.late?' <span class="dim">(po cenie bieżącej)</span>':""}</td></tr>`).join("")}</tbody></table>`
+    :'<div class="empty">Brak transakcji. Bot kupuje dopiero, gdy co najmniej jedna średnia da głos.</div>';
+  const c=S.config;
+  $("params").innerHTML=[["Średnie kroczące",c.mas.join(" / ")+" dni","Trzy głosy trendu"],["Docelowa zmienność",pct(c.target_vol,0),"Rocznie, na aktywo"],["Limit na aktywo",pct(c.cap_asset,0),"Łącznie do "+pct(c.cap_total,0)],
+    ["Pasmo korekty",num(c.band*100,0)+" pp","Korekta w poniedziałki"],demo?["Koszt na stronę","wg Bybit","Rzeczywista prowizja demo"]:["Koszt na stronę",pct(c.cost,2),"Prowizja i poślizg"],["Próg alarmu",pct(c.dd_alert,0),"Przegląd, bez autosprzedaży"]]
+    .map(([l,v,s])=>`<div class="tile"><div class="caps">${l}</div><div class="mono pri" style="margin-top:6px">${v}</div><div class="s">${s}</div></div>`).join("");
+  $("events").innerHTML=S.events.length?S.events.map(e=>`<div><span class="mono dim">${esc(e.ts.replace("T"," ").replace("Z",""))}</span> <span class="${e.kind==="alert"?"amber":""}">${esc(e.text)}</span></div>`).join(""):'<div class="dim">Brak zdarzeń.</div>';
+}
+
+function countdown(){
+  if(!S||!S.portfolio)return;
+  let s=Math.max(0,Math.floor((S.portfolio.next_eval_ms-Date.now())/1000));
+  const h=Math.floor(s/3600),m=Math.floor(s%3600/60);s%=60;
+  $("next-eval").textContent=`${h} godz. ${String(m).padStart(2,"0")} min ${String(s).padStart(2,"0")} s`;
+}
+async function load(){
+  try{const r=await fetch("/api/state");S=await r.json();render()}
+  catch(e){$("st-text").textContent="Brak połączenia z botem";$("st-dot").className="dot bad"}
+}
+$("pause-btn").addEventListener("click",async()=>{
+  if(busy||!S)return;busy=true;
+  try{await fetch(S.paused?"/api/resume":"/api/pause",{method:"POST"});await load()}finally{busy=false}
+});
+load();setInterval(load,15000);setInterval(countdown,1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+services:
+  bot:
+    build: .
+    image: trendquant-paper-bot
+    container_name: trendquant-paper-bot
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"   # panel dostępny tylko z tego komputera
+    volumes:
+      - bot-data:/data          # stan wirtualnego portfela przetrwa restart
+    env_file:
+      - path: .env              # klucze konta demo Bybit; bez tego pliku bot prowadzi portfel wirtualny
+        required: false
+    environment:
+      INITIAL_CASH: "2500"     # wirtualny kapitał początkowy w USDT
+      TARGET_VOL: "0.10"        # docelowa zmienność roczna na aktywo (wariant ostrożny)
+      CAP_ASSET: "0.40"         # maks. udział jednej monety
+      CAP_TOTAL: "0.80"         # maks. łączna ekspozycja
+      BAND: "0.05"              # pasmo tygodniowej korekty wielkości
+      COST: "0.0015"            # koszt na stronę: prowizja + poślizg
+      DD_ALERT: "0.15"          # próg alarmu obsunięcia
+      START_DATE: "2018-01-01"            # opcjonalnie RRRR-MM-DD: odtwórz historię od tej daty
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  bot-data:

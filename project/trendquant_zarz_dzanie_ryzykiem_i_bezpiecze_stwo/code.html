@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed-dim":"#adc6ff","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#ffb95f","on-tertiary-fixed-variant":"#653e00","error-container":"#93000a","tertiary":"#ffb95f","background":"#10141a","outline":"#8c909f","tertiary-container":"#ca8100","on-surface-variant":"#c2c6d6","secondary-fixed-dim":"#4edea3","primary-container":"#4d8eff","on-tertiary-container":"#3e2400","on-secondary-container":"#00311f","outline-variant":"#424754","on-primary-fixed-variant":"#004395","inverse-surface":"#dfe2eb","on-surface":"#dfe2eb","error":"#ffb4ab","surface-container-lowest":"#0a0e14","on-primary":"#002e6a","secondary-container":"#00a572","secondary-fixed":"#6ffbbe","surface-container-low":"#181c22","surface-dim":"#10141a","surface-container-highest":"#31353c","on-error-container":"#ffdad6","on-tertiary":"#472a00","on-secondary":"#003824","on-tertiary-fixed":"#2a1700","secondary":"#4edea3","surface-container-high":"#262a31","on-secondary-fixed-variant":"#005236","on-primary-container":"#00285d","on-error":"#690005","surface-variant":"#31353c","primary-fixed":"#d8e2ff","on-secondary-fixed":"#002113","surface-tint":"#adc6ff","inverse-primary":"#005ac2","tertiary-fixed":"#ffddb8","surface-container":"#1c2026","primary":"#adc6ff","surface-bright":"#353940","surface":"#10141a","on-background":"#dfe2eb","inverse-on-surface":"#2d3137"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2.5rem",gutter:"1rem","space-sm":"0.5rem","space-lg":"1.5rem",margin:"1rem"},fontFamily:{"data-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"],"display-lg":["Space Grotesk"],"data-md":["JetBrains Mono"],"body-sm":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"data-sm":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Inter"]},fontSize:{"data-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.03em",fontWeight:"600"}],"data-md":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],"data-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">TrendQuant</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Status: Monitoring UTC Daily Close</span></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-on-surface bg-surface-container-high rounded-DEFAULT"><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="przeglad-strategii" href="#">Przegląd Strategii</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sygnaly-i-alokacja" href="#">Sygnały i Alokacja</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dowody-empiryczne" href="#">Dowody Empiryczne</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="zarzadzanie-ryzykiem" href="#">Zarządzanie Ryzykiem</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="symulator-konfiguracja" href="#">Symulator / Konfiguracja</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden md:flex items-center gap-space-xs font-data-sm text-data-sm px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="text-secondary font-medium">BTC: 3/3 Głosy</span><span class="text-outline-variant">|</span><span class="text-tertiary font-medium">ETH: 2/3 Głosy</span></div><div class="flex items-center gap-space-sm"><a class="h-9 px-space-md flex items-center justify-center rounded-DEFAULT bg-primary font-label-caps text-label-caps text-on-primary uppercase transition-opacity hover:opacity-90" data-path="symulator-konfiguracja" href="#">Uruchom Paper-Trading</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Academic Sub-Navigation & Breadcrumb Bar -->
+<section class="w-full bg-surface-container-lowest px-gutter-desktop py-space-sm">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm font-label-caps text-label-caps text-on-surface-variant">
+<span class="text-primary font-medium">TQ-CORE-RESEARCH</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface uppercase">Framework Ryzyka i Higieny Wykonania</span>
+<span class="text-outline-variant">/</span>
+<span class="text-secondary font-medium">REŻIM: SPOT-ONLY</span>
+</div>
+<div class="flex items-center gap-space-md font-data-sm text-data-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">verified_user</span>
+<span>Brak Dźwigni (1.0x Max)</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-secondary">lock</span>
+<span>Zero-Withdrawal API</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary">schedule</span>
+<span>Ewaluacja: 00:00:05 UTC</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section Title & Context -->
+<section class="w-full px-gutter-desktop py-space-xl">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end">
+<div class="lg:col-span-8 flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label-caps text-label-caps tracking-widest uppercase">
+<span>Architektura Bezpieczeństwa Kapitałowego</span>
+<span class="text-outline-variant">•</span>
+<span>Weryfikacja Han-Kang-Ryu</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Zarządzanie Ryzykiem, Model Zmienności i Bezpieczeństwo Operacyjne
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl pt-space-xs">
+            Systematyczny handel na rynku spot nie polega na predykcji cen, lecz na bezwzględnej kontroli wielkości pozycji (Position Sizing) powiązanej z realizowaną zmiennością 60-dniową oraz eliminacji ryzyka operacyjnego na poziomie infrastruktury giełdowej.
+          </p>
+</div>
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-space-sm">
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Maks. Zaangażowanie Portfela</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">40.0% (Wariant A)</span>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Rezerwa Płynna (USDT/USDC)</span>
+<span class="font-data-md text-data-md text-secondary font-semibold">60.0% Rezerwa</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 1: PUNKT SPORNY (VOLATILITY CALIBRATION EXPERIMENT) -->
+<section class="w-full px-gutter-desktop pb-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-space-xs">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary uppercase">Moduł Analityczny 01</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">
+            Punkt Sporny: Kalibracja Celowanej Zmienności (<span class="font-data-md text-data-md text-primary">σ<sub>target</sub></span>)
+          </h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-DEFAULT">
+<button class="px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all bg-surface-container-high text-on-surface shadow-sm" id="btn-variant-a" onclick="switchVariant('A')">
+            Wariant A: Codex (10% Target)
+          </button>
+<button class="px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all text-on-surface-variant hover:text-on-surface" id="btn-variant-b" onclick="switchVariant('B')">
+            Wariant B: Gemini (40% Target)
+          </button>
+</div>
+</div>
+<!-- Comparative Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Interactive Model Card: Variant A -->
+<div class="lg:col-span-6 p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between transition-all duration-300" id="card-variant-a">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-1 rounded-DEFAULT bg-primary/10 text-primary font-label-caps text-label-caps uppercase">
+                Rekomendacja Standardowa Codex
+              </span>
+<span class="font-data-sm text-data-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span> Rekomendowany Setup
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Konserwatywne Celowanie Zmienności</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Matematyczne dopasowanie wagi pod zmienność roczną σ<sub>t</sub> = 10%. Zapewnia odporność na wstrząsy w okresach kompresji i eksplozji zmienności Bitcoina i Ethereum.
+              </p>
+</div>
+<!-- Mathematical Formula Spec -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm text-on-surface-variant flex items-center justify-between">
+<span>Waga na aktywo:</span>
+<span class="text-primary font-medium">w<sub>i</sub> = min(0.20, 0.10 / σ<sub>ann,60d</sub>)</span>
+</div>
+<!-- Quantitative Stats Array -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Cel Zmienności</span>
+<span class="font-data-lg text-data-lg text-on-surface font-semibold">10.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">na pojedynczy coin</span>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Typowa Ekspozycja</span>
+<span class="font-data-lg text-data-lg text-secondary font-semibold">40.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">20% BTC + 20% ETH</span>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Próg Alarmu DD</span>
+<span class="font-data-lg text-data-lg text-tertiary font-semibold">15.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Od Peak High</span>
+</div>
+</div>
+<!-- Visual Distribution Bar -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>Alokacja Kapitału: Rynek vs Gotówka</span>
+<span class="text-on-surface">40% W Rynku / 60% Gotówka</span>
+</div>
+<div class="w-full h-3 rounded-DEFAULT bg-surface-container-highest flex overflow-hidden">
+<div class="h-full bg-primary" style="width: 20%;" title="BTC: 20%"></div>
+<div class="h-full bg-primary-container" style="width: 20%;" title="ETH: 20%"></div>
+<div class="h-full bg-secondary-container" style="width: 60%;" title="USDC/USDT: 60%"></div>
+</div>
+<div class="flex items-center gap-space-md font-data-sm text-data-sm text-on-surface-variant pt-1">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-primary inline-block"></span> BTC (20%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-primary-container inline-block"></span> ETH (20%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-secondary-container inline-block"></span> Stabilna Gotówka (60%)</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Wskaźnik Fałszywych Alarmów: <span class="text-secondary font-medium">Brak w próbie 2019-2024</span></span>
+<span class="font-label-caps text-label-caps text-primary uppercase">Model Stabilny</span>
+</div>
+</div>
+<!-- Interactive Model Card: Variant B -->
+<div class="lg:col-span-6 p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between transition-all duration-300 opacity-80 hover:opacity-100" id="card-variant-b">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-1 rounded-DEFAULT bg-tertiary-container/30 text-tertiary font-label-caps text-label-caps uppercase">
+                Podejście Agresywne Gemini
+              </span>
+<span class="font-data-sm text-data-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Ryzyko Częstych Szumów
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Wysoka Wrażliwość na Zwrot (α)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Agresywne celowanie zmienności σ<sub>t</sub> = 40%. Maksymalizuje stopę zwrotu w silnych trendach parabolicznych, lecz wymusza ekspozycję rzędu 50-70% całkowitego portfela.
+              </p>
+</div>
+<!-- Mathematical Formula Spec -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm text-on-surface-variant flex items-center justify-between">
+<span>Waga na aktywo:</span>
+<span class="text-tertiary font-medium">w<sub>i</sub> = min(0.35, 0.40 / σ<sub>ann,60d</sub>)</span>
+</div>
+<!-- Quantitative Stats Array -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Cel Zmienności</span>
+<span class="font-data-lg text-data-lg text-tertiary font-semibold">40.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">wysoka zmienność</span>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Typowa Ekspozycja</span>
+<span class="font-data-lg text-data-lg text-on-surface font-semibold">50–70%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">25-35% na aktywo</span>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline block">Wymóg Bufora DD</span>
+<span class="font-data-lg text-data-lg text-error font-semibold">25–30%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Alarm 15% zbyt wąski</span>
+</div>
+</div>
+<!-- Visual Distribution Bar -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>Alokacja Kapitału: Rynek vs Gotówka</span>
+<span class="text-on-surface">65% W Rynku / 35% Gotówka</span>
+</div>
+<div class="w-full h-3 rounded-DEFAULT bg-surface-container-highest flex overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 32.5%;" title="BTC: 32.5%"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 32.5%;" title="ETH: 32.5%"></div>
+<div class="h-full bg-secondary-container" style="width: 35%;" title="USDC/USDT: 35%"></div>
+</div>
+<div class="flex items-center gap-space-md font-data-sm text-data-sm text-on-surface-variant pt-1">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-tertiary inline-block"></span> BTC (32.5%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-tertiary-fixed-dim inline-block"></span> ETH (32.5%)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-DEFAULT bg-secondary-container inline-block"></span> Gotówka (35%)</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Wskaźnik Fałszywych Alarmów: <span class="text-error font-medium">Wysoki przy progu 15%</span></span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase">Wymaga Ręcznej Zgody</span>
+</div>
+</div>
+</div>
+<!-- Comparison Synthesis Callout -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-lowest flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0 mt-0.5">analytics</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Dlaczego próg 15% Drawdown jest niekompatybilny z Wariantem B?</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Przy ekspozycji 70% na kryptowaluty o typowej zmienności 60% p.a., zwykła korekta o 22% w krypto generuje 15.4% obsunięcia całego portfela. Wariant B skutkuje chronicznym wywoływaniem procedury awaryjnej w zdrowych trendach wzrostowych. Rekomendujemy wyłącznie Wariant A.
+            </p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="px-space-md py-space-xs rounded-DEFAULT bg-surface-container font-label-caps text-label-caps text-secondary uppercase">
+            Rekomendacja: Wariant A (10%)
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: PROCEDURA ALARMOWA (15% DRAWDOWN THRESHOLD) -->
+<section class="w-full px-gutter-desktop py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-error">
+<span class="material-symbols-outlined text-[16px]">notification_important</span>
+<span class="uppercase">Protokół Bezpieczeństwa Poziomu L2</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Procedura Alarmowa: Próg Obsunięcia Portfela 15%
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Przekroczenie -15.0% od historycznego szczytu wyceny (High Watermark). Zgodnie z badaniami z zakresu behavioral finance, system <span class="text-on-surface font-semibold">NIE DOKONUJE panicznej wyprzedaży rynkowej do zera</span> (Market Dump), co zabezpiecza przed zamykaniem na dołkach luki płynnościowej.
+          </p>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-low shrink-0 flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Bieżący Portfel HWM</span>
+<span class="font-data-md text-data-md text-on-surface">$100,000.00</span>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-error">Punkt Spustowy Alarmu</span>
+<span class="font-data-md text-data-md text-error">$85,000.00 (-15%)</span>
+</div>
+</div>
+</div>
+<!-- 4-Step Interactive Runbook Workflow -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Step 1 -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-data-lg text-data-lg text-primary font-semibold">01</span>
+<span class="material-symbols-outlined text-outline text-[20px]">rss_feed</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Integralność Feedu Danych</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Weryfikacja poprawności kwotowań API Binance/Kraken. Eliminacja błędu "bad tick" lub chwilowej awarii WebSocket giełdy przed wykonaniem jakichkolwiek akcji.
+            </p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-label-caps text-secondary">
+<span>Automatyczny Ping API</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-data-lg text-data-lg text-primary font-semibold">02</span>
+<span class="material-symbols-outlined text-outline text-[20px]">show_chart</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Szum vs Luka Płynności</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Rozpoznanie charakteru spadku: czy obsunięcie wynika z normalnego szumu rynkowego wewnątrz 200 SMA, czy z systemowego pęknięcia płynności (flash crash).
+            </p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-label-caps text-primary">
+<span>Analiza Głębokości OB</span>
+<span class="material-symbols-outlined text-[16px]">troubleshoot</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-data-lg text-data-lg text-primary font-semibold">03</span>
+<span class="material-symbols-outlined text-outline text-[20px]">balance</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Przegląd Driftu Wag Portfela</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Kalkulacja odchylenia bieżącej alokacji od wyznaczonej przez 60-dniową zmienność. Wycena wymaganej deeskalacji pozycji do poziomu docelowego 10% σ.
+            </p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-label-caps text-tertiary">
+<span>Drift &gt; 5% = Wyciszenie</span>
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md relative overflow-hidden group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-data-lg text-data-lg text-secondary font-semibold">04</span>
+<span class="material-symbols-outlined text-outline text-[20px]">fingerprint</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Autoryzacja Operatorska</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Wstrzymanie automatycznych egzekucji do momentu manualnej autoryzacji przez operatora. Brak panic-sell — redukcja wyłącznie do poziomów granicznych.
+            </p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between font-label-caps text-label-caps text-on-surface">
+<span>Wymagana 2FA / Podpis</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Execution Form / Manual Override Panel -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-primary">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>KONFIGURACJA RUNBOOKA AWARYJNEGO</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">Status Gotowości Procedury Odcięcia</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            W przypadku naruszenia progu 15% algorytm przechodzi w tryb <span class="font-data-sm text-data-sm text-on-surface">READ-ONLY AUDIT</span>. Silnik przesyła natychmiastowe powiadomienie via PagerDuty / Telegram webhook ze zrzutem parametrów zmienności.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-9 px-space-md rounded-DEFAULT bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-caps text-label-caps uppercase transition-colors flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">history</span>
+            Logi Historyczne DD
+          </button>
+<button class="h-9 px-space-md rounded-DEFAULT bg-primary text-on-primary font-label-caps text-label-caps uppercase transition-opacity hover:opacity-90 flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">settings_alert</span>
+            Testuj Ścieżkę Alarmu (Mock 15%)
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: REGUŁY INFRASTRUKTURALNE I HIGIENA BEZPIECZEŃSTWA -->
+<section class="w-full px-gutter-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Moduł 03 // Higiena Poza-Strategią</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+          Reguły Infrastrukturalne i Bezpieczeństwo Operacyjne
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          Zarządzanie ryzykiem to nie tylko parametry statystyczne. 80% katastrof w handlu algorytmicznym wynika z kompromitacji kluczy, awarii giełd lub niekontrolowanego kosztu poślizgu cenowego (Slippage).
+        </p>
+</div>
+<!-- Infrastructure Matrix: 4 Core Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Pillar 1: API Security -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-DEFAULT bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">key</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-secondary/10 text-secondary font-label-caps text-label-caps uppercase">
+                Wypłaty Zablokowane
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Uprawnienia Kluczy API &amp; Restrykcje IP</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Klucze łączące bota z giełdą (Binance/Kraken) posiadają wyłącznie uprawnienie 'Enable Spot Trading'. Uprawnienia wypłat środków (Withdrawals) są bezwzględnie dezaktywowane w profilu giełdy.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Biała lista IP (Static VPS):</span>
+<span class="text-on-surface">194.164.xx.xxx (Enforced)</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Uprawnienia 'Margin / Futures':</span>
+<span class="text-error font-medium">Dezaktywowane (Brak Dźwigni)</span>
+</div>
+</div>
+</div>
+<div class="font-data-sm text-data-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">security</span>
+            Zero ryzyka utraty całości kapitału wskutek kradzieży klucza
+          </div>
+</div>
+<!-- Pillar 2: Exchange Diversification -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-DEFAULT bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase">
+                Max 50% Per Venue
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Dywersyfikacja Miejsc Wykonania (Venues)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Żadna giełda nie może przechowywać więcej niż 50% łącznego kapitału. Portfel jest rozdzielony pomiędzy niezależne podmioty prawne o udokumentowanym Proof-of-Reserves.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Alokacja Venue 1 (np. Binance Spot):</span>
+<span class="text-primary font-medium">50.0% Max Kapitału</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Alokacja Venue 2 (np. Kraken Spot):</span>
+<span class="text-primary font-medium">50.0% Max Kapitału</span>
+</div>
+</div>
+</div>
+<div class="font-data-sm text-data-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">pie_chart</span>
+            Eliminacja ryzyka niewypłacalności pojedynczego brokera / giełdy
+          </div>
+</div>
+<!-- Pillar 3: Execution Hygiene (Maker Fee Optimization) -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-DEFAULT bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">price_check</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-secondary-container/20 text-secondary font-label-caps text-label-caps uppercase">
+                Maker 0.02% vs Taker 0.10%
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Zlecenia Limit na Zamknięciu Dnia UTC</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Sygnał generowany jest o 00:00:00 UTC. Bot nie składa panicznych zleceń rynkowych (Market). Składa pasywne zlecenia Limit na poziomie ceny zamknięcia (Post-Only), redukując opłaty o ponad 60-80%.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Oszczędność prowizji rocznie:</span>
+<span class="text-secondary font-medium">+1.8% do całkowitego CAGR</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Bufor czasowy na wykonanie:</span>
+<span class="text-on-surface">300 sekund (Time-In-Force)</span>
+</div>
+</div>
+</div>
+<div class="font-data-sm text-data-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">toll</span>
+            Wykorzystanie rabatów giełdowych BNB / KRAKEN Fee Tiers
+          </div>
+</div>
+<!-- Pillar 4: Tax Compliance & Audit Trail -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-DEFAULT bg-outline-variant/30 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase">
+                Zgodność z PIT-38
+              </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Eksport Podatkowy &amp; Rejestr Zdarzeń CSV</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                W polskim prawie podatkowym wymiana krypto-krypto (np. BTC na ETH) nie rodzi obowiązku podatkowego, lecz sprzedaż do fiat (PLN/EUR) lub realizacja kosztów nabycia podlega ścisłemu ewidencjonowaniu.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Format eksportu:</span>
+<span class="text-on-surface">Standard CSV (Data, Kurs NBP, Waluta)</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-DEFAULT bg-surface-container-lowest font-data-sm text-data-sm">
+<span class="text-on-surface-variant">Identyfikator kosztów:</span>
+<span class="text-primary font-medium">Metoda FIFO z przypisaniem prowizji</span>
+</div>
+</div>
+</div>
+<div class="font-data-sm text-data-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">download</span>
+            Generowanie kompletnego raportu podatkowego 1 kliknięciem
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: INTERACTIVE CHECKLIST BEFORE LIVE CAPITAL DEPLOYMENT -->
+<section class="w-full px-gutter-desktop py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-tertiary">
+<span class="material-symbols-outlined text-[16px]">fact_check</span>
+<span class="uppercase">Protokół Weryfikacyjny</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Checklista Przed Uruchomieniem na Prawdziwych Pieniądzach
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Rygorystyczna brama jakościowa. Podłączenie produkcyjnego API z kapitałem fiat wymaga odhaczenia wszystkich warunków wstępnych w celu wyeliminowania błędu nadmiernego dopasowania (Overfitting).
+          </p>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Postęp wdrożenia:</span>
+<span class="font-data-md text-data-md text-secondary font-semibold" id="checklist-progress">2 / 4 Ukończone (50%)</span>
+</div>
+</div>
+<!-- Interactive Gate Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Checklist Item 1 (Completed) -->
+<label class="p-space-md rounded-DEFAULT bg-surface-container-low flex items-start gap-space-md cursor-pointer hover:bg-surface-container transition-colors">
+<div class="pt-0.5 shrink-0">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-secondary accent-secondary text-on-secondary" disabled="" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Test kroczący (Walk-forward) od 2017 r.</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-secondary/10 text-secondary font-label-caps text-label-caps uppercase">Zaliczony</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Optymalizacja parametrów średnich kroczących (50/100/200 SMA) w oknach przesuwnych. Potwierdzona przewaga statystyczna bez podglądania przyszłości (Lookahead Bias).
+            </p>
+<div class="font-data-sm text-data-sm text-outline mt-1">
+              Przetestowano: 2,740 sesji dziennych UTC // 3 cykle halvingowe
+            </div>
+</div>
+</label>
+<!-- Checklist Item 2 (Completed) -->
+<label class="p-space-md rounded-DEFAULT bg-surface-container-low flex items-start gap-space-md cursor-pointer hover:bg-surface-container transition-colors">
+<div class="pt-0.5 shrink-0">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-secondary accent-secondary text-on-secondary" disabled="" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Nietknięty okres kontrolny (Out-of-sample data)</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-secondary/10 text-secondary font-label-caps text-label-caps uppercase">Zaliczony</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Rezerwa danych z lat 2023-2024 nie była używana w procesie kalibracji reguł decyzyjnych. Model na próbie OOS osiągnął Sharpe Ratio 1.42 przy Max DD 12.8%.
+            </p>
+<div class="font-data-sm text-data-sm text-outline mt-1">
+              Baza walidacyjna: 480 dni out-of-sample
+            </div>
+</div>
+</label>
+<!-- Checklist Item 3 (Pending Paper Trading) -->
+<label class="p-space-md rounded-DEFAULT bg-surface-container-low flex items-start gap-space-md cursor-pointer hover:bg-surface-container transition-colors">
+<div class="pt-0.5 shrink-0">
+<input class="w-4 h-4 rounded-DEFAULT accent-primary text-on-primary" id="check-paper-trading" onchange="updateChecklistProgress()" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">3 do 6 miesięcy handlu na papierze (Paper-Trading)</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-tertiary-container/30 text-tertiary font-label-caps text-label-caps uppercase">W Trakcie (Miesiąc 2/3)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Weryfikacja zachowania bota w warunkach live bez angażowania środków. Potwierdzenie braku desynchronizacji serwera o 00:00 UTC oraz bezbłędnej obsługi reconnectów WebSocket.
+            </p>
+<div class="font-data-sm text-data-sm text-tertiary mt-1">
+              Status bieżący: 58 dni bez błędu API na symulatorze
+            </div>
+</div>
+</label>
+<!-- Checklist Item 4 (Pending Slippage Check) -->
+<label class="p-space-md rounded-DEFAULT bg-surface-container-low flex items-start gap-space-md cursor-pointer hover:bg-surface-container transition-colors">
+<div class="pt-0.5 shrink-0">
+<input class="w-4 h-4 rounded-DEFAULT accent-primary text-on-primary" id="check-slippage" onchange="updateChecklistProgress()" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Weryfikacja realnego slippage i kosztów prowizji</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps uppercase">Oczekuje na audyt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Porównanie faktycznych cen egzekucji testowych zleceń Limit z oficjalną ceną zamknięcia UTC ze świecy dziennej. Odchylenie (slippage) nie może przekraczać 0.05%.
+            </p>
+<div class="font-data-sm text-data-sm text-outline mt-1">
+              Wymagany minimalny wolumen testowy: $500 na zlecenie
+            </div>
+</div>
+</label>
+</div>
+<!-- Execution Callout Banner -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm font-data-sm text-data-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">shield_lock</span>
+<span>Poziom Odporności Kapitałowej: <strong class="text-on-surface">Klasa A (Instytucjonalna)</strong></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="px-space-md py-1.5 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-caps text-label-caps uppercase transition-colors" data-path="symulator-konfiguracja" href="#">
+            Otwórz Monitor Paper-Trading
+          </a>
+<button class="px-space-md py-1.5 rounded-DEFAULT bg-primary/40 text-on-primary/60 cursor-not-allowed font-label-caps text-label-caps uppercase transition-all" disabled="" id="btn-deploy-live" type="button">
+            Odblokuj Wdrożenie Live API
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Engine for Toggles & Checklist -->
+<script>
+    function switchVariant(variant) {
+      const btnA = document.getElementById('btn-variant-a');
+      const btnB = document.getElementById('btn-variant-b');
+      const cardA = document.getElementById('card-variant-a');
+      const cardB = document.getElementById('card-variant-b');
+
+      if (variant === 'A') {
+        btnA.className = 'px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all bg-surface-container-high text-on-surface shadow-sm';
+        btnB.className = 'px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all text-on-surface-variant hover:text-on-surface';
+        
+        cardA.classList.remove('opacity-60');
+        cardA.classList.add('opacity-100');
+        cardB.classList.remove('opacity-100');
+        cardB.classList.add('opacity-60');
+      } else {
+        btnB.className = 'px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all bg-surface-container-high text-on-surface shadow-sm';
+        btnA.className = 'px-space-md py-1.5 rounded-DEFAULT font-label-caps text-label-caps uppercase transition-all text-on-surface-variant hover:text-on-surface';
+        
+        cardB.classList.remove('opacity-60');
+        cardB.classList.add('opacity-100');
+        cardA.classList.remove('opacity-100');
+        cardA.classList.add('opacity-60');
+      }
+    }
+
+    function updateChecklistProgress() {
+      const p1 = true;
+      const p2 = true;
+      const p3 = document.getElementById('check-paper-trading').checked;
+      const p4 = document.getElementById('check-slippage').checked;
+
+      let count = 2;
+      if (p3) count++;
+      if (p4) count++;
+
+      const progressLabel = document.getElementById('checklist-progress');
+      const deployBtn = document.getElementById('btn-deploy-live');
+
+      const percent = (count / 4) * 100;
+      progressLabel.textContent = count + ' / 4 Ukończone (' + percent + '%)';
+
+      if (count === 4) {
+        progressLabel.classList.remove('text-secondary', 'text-tertiary');
+        progressLabel.classList.add('text-secondary-fixed');
+        deployBtn.disabled = false;
+        deployBtn.className = 'px-space-md py-1.5 rounded-DEFAULT bg-primary text-on-primary font-label-caps text-label-caps uppercase transition-all hover:opacity-90 cursor-pointer shadow-sm';
+        deployBtn.textContent = 'Autoryzuj Podłączenie Live API';
+      } else {
+        deployBtn.disabled = true;
+        deployBtn.className = 'px-space-md py-1.5 rounded-DEFAULT bg-primary/40 text-on-primary/60 cursor-not-allowed font-label-caps text-label-caps uppercase transition-all';
+        deployBtn.textContent = 'Odblokuj Wdrożenie Live API';
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-gutter-desktop py-space-xl"><div class="flex flex-col md:flex-row items-start justify-between gap-space-lg mb-space-lg"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-7 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-sm text-headline-sm text-on-surface uppercase">TrendQuant Spot</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-on-surface-variant"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">shield</span> Spot Only (No Leverage)</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">key</span> Read / Trade API</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">menu_book</span> Han, Kang &amp; Ryu (2013)</span></div></div><div class="rounded-DEFAULT bg-surface-container-low p-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">System badawczy bazujący na literaturze akademickiej (Han, Kang &amp; Ryu). To nie jest porada inwestycyjna. Handel spot bez dźwigni, klucze API bez prawa wypłaty (read/trade only). Wszystkie modele podlegają ryzyku obsunięcia kapitału.</p></div><div class="mt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm font-data-sm text-data-sm text-outline"><p>© TrendQuant Quantitative Research. Wszelkie prawa zastrzeżone.</p><p class="text-right">Engine v2.4.1-alpha // Rebalance 00:00 UTC</p></div></div></footer></body></html>

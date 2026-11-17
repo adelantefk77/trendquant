@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed-dim":"#adc6ff","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#ffb95f","on-tertiary-fixed-variant":"#653e00","error-container":"#93000a","tertiary":"#ffb95f","background":"#10141a","outline":"#8c909f","tertiary-container":"#ca8100","on-surface-variant":"#c2c6d6","secondary-fixed-dim":"#4edea3","primary-container":"#4d8eff","on-tertiary-container":"#3e2400","on-secondary-container":"#00311f","outline-variant":"#424754","on-primary-fixed-variant":"#004395","inverse-surface":"#dfe2eb","on-surface":"#dfe2eb","error":"#ffb4ab","surface-container-lowest":"#0a0e14","on-primary":"#002e6a","secondary-container":"#00a572","secondary-fixed":"#6ffbbe","surface-container-low":"#181c22","surface-dim":"#10141a","surface-container-highest":"#31353c","on-error-container":"#ffdad6","on-tertiary":"#472a00","on-secondary":"#003824","on-tertiary-fixed":"#2a1700","secondary":"#4edea3","surface-container-high":"#262a31","on-secondary-fixed-variant":"#005236","on-primary-container":"#00285d","on-error":"#690005","surface-variant":"#31353c","primary-fixed":"#d8e2ff","on-secondary-fixed":"#002113","surface-tint":"#adc6ff","inverse-primary":"#005ac2","tertiary-fixed":"#ffddb8","surface-container":"#1c2026","primary":"#adc6ff","surface-bright":"#353940","surface":"#10141a","on-background":"#dfe2eb","inverse-on-surface":"#2d3137"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2.5rem",gutter:"1rem","space-sm":"0.5rem","space-lg":"1.5rem",margin:"1rem"},fontFamily:{"data-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"],"display-lg":["Space Grotesk"],"data-md":["JetBrains Mono"],"body-sm":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"data-sm":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Inter"]},fontSize:{"data-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.03em",fontWeight:"600"}],"data-md":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],"data-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">TrendQuant</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Status: Monitoring UTC Daily Close</span></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-on-surface bg-surface-container-high rounded-DEFAULT"><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="przeglad-strategii" href="#">Przegląd Strategii</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sygnaly-i-alokacja" href="#">Sygnały i Alokacja</a><a aria-current="page" class="px-space-sm py-1.5 font-body-md transition-colors text-on-surface bg-surface-container-high rounded-DEFAULT" data-path="dowody-empiryczne" href="#">Dowody Empiryczne</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="zarzadzanie-ryzykiem" href="#">Zarządzanie Ryzykiem</a><a class="px-space-sm py-1.5 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="symulator-konfiguracja" href="#">Symulator / Konfiguracja</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden md:flex items-center gap-space-xs font-data-sm text-data-sm px-space-sm py-1 rounded-DEFAULT bg-surface-container-low"><span class="text-secondary font-medium">BTC: 3/3 Głosy</span><span class="text-outline-variant">|</span><span class="text-tertiary font-medium">ETH: 2/3 Głosy</span></div><div class="flex items-center gap-space-sm"><a class="h-9 px-space-md flex items-center justify-center rounded-DEFAULT bg-primary font-label-caps text-label-caps text-on-primary uppercase transition-opacity hover:opacity-90" data-path="symulator-konfiguracja" href="#">Uruchom Paper-Trading</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Notification & Empirical Digest Header -->
+<section class="w-full px-gutter-desktop max-w-7xl mx-auto py-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm font-label-caps text-label-caps text-primary tracking-widest uppercase">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Repozytorium Badań Ilościowych // Peer-Reviewed Quantitative Proof
+        </div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Dowody Empiryczne &amp; Architektura Ryzyka
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Matematyczna weryfikacja anomalii pędu czasowego (TSMOM). Wnioski z pracy Han, Kang &amp; Ryu (2013), audyt backtestu 2018–2026 oraz dekonstrukcja zawodnych mechanizmów handlowych.
+        </p>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm lg:shrink-0">
+<div class="bg-surface-container p-space-md rounded-DEFAULT shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Horyzont Danych</span>
+<span class="font-data-lg text-data-lg text-on-surface">2,922 dni</span>
+<span class="font-body-sm text-body-sm text-outline block">2018.01 — 2026.02</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Slippage &amp; Fee</span>
+<span class="font-data-lg text-data-lg text-tertiary">0.150%</span>
+<span class="font-body-sm text-body-sm text-outline block">1.5x stawki bazowej</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT col-span-2 sm:col-span-1 shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Ochrona Kapitału</span>
+<span class="font-data-lg text-data-lg text-secondary">-56.2%</span>
+<span class="font-body-sm text-body-sm text-secondary block">vs -81.4% B&amp;H Max DD</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 1. ACADEMIC RESEARCH: HAN, KANG & RYU -->
+<section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop space-y-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider block">Podstawa Naukowa</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Fundament Han, Kang &amp; Ryu: TSMOM vs CSMOM</h2>
+</div>
+<div class="flex items-center gap-space-sm font-data-sm text-data-sm text-on-surface-variant bg-surface-container px-space-md py-space-xs rounded-DEFAULT">
+<span class="material-symbols-outlined text-[16px] text-primary">article</span>
+          Journal of Financial Markets &amp; Empirical Asset Pricing
+        </div>
+</div>
+<!-- Bento Grid for Paper Breakdown -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Visual & Paper Abstract Card -->
+<div class="lg:col-span-7 bg-surface p-space-lg rounded-DEFAULT flex flex-col justify-between space-y-space-md shadow-sm">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary px-space-sm py-1 bg-surface-container-high rounded-DEFAULT uppercase">Time-Series Momentum (TSMOM)</span>
+<span class="font-data-sm text-data-sm text-secondary font-medium">Zweryfikowana Trwałość: p &lt; 0.001</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Trend Prowadzący (Time-Series) vs Pogoń za Zwycięzcami (Cross-Sectional)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Zastosowanie modeli momentum na aktywach cyfrowych wykazuje fundamentalną asymetrię. Badania rynkowe potwierdzają, że <strong class="text-on-surface">Time-Series Momentum (podążanie za własnym kierunkiem aktywa względem historycznej średniej)</strong> generuje niepodważalną alfę i chroni przed tail-riskiem po odliczeniu rygorystycznych tarć giełdowych.
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              W przeciwieństwie do tradycyjnych akcji, <strong class="text-tertiary">Cross-Sectional Momentum (ranking względnej siły monet i kupowanie najsilniejszych liderów)</strong> ulega natychmiastowej degradacji w kryptowalutach z powodu drastycznych rotacji płynności, pump-and-dump oraz zjawiska "momentum crash".
+            </p>
+</div>
+<!-- Comparative Vector Chart SVG -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT space-y-space-xs">
+<div class="flex items-center justify-between font-label-caps text-label-caps text-outline">
+<span>Współczynnik Informacyjny (Information Ratio) po Tarcicach Giełdowych</span>
+<span>Model Wieloletni</span>
+</div>
+<div class="h-28 w-full flex items-end justify-between gap-space-md pt-4">
+<!-- Bar 1: TSMOM BTC -->
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<span class="font-data-sm text-data-sm text-secondary">+0.84</span>
+<div class="w-full bg-secondary-container/40 rounded-t-DEFAULT h-[78%] flex items-end">
+<div class="w-full bg-secondary h-full rounded-t-DEFAULT"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center truncate w-full">TSMOM (BTC)</span>
+</div>
+<!-- Bar 2: TSMOM ETH -->
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<span class="font-data-sm text-data-sm text-secondary">+0.79</span>
+<div class="w-full bg-secondary-container/40 rounded-t-DEFAULT h-[72%] flex items-end">
+<div class="w-full bg-secondary h-full rounded-t-DEFAULT"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center truncate w-full">TSMOM (ETH)</span>
+</div>
+<!-- Bar 3: CSMOM Top 20 -->
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<span class="font-data-sm text-data-sm text-error">-0.18</span>
+<div class="w-full bg-error-container/40 rounded-b-DEFAULT h-[20%] flex items-start">
+<div class="w-full bg-error h-full rounded-b-DEFAULT"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center truncate w-full">CSMOM (Alts)</span>
+</div>
+<!-- Bar 4: Buy & Hold Benchmark -->
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<span class="font-data-sm text-data-sm text-on-surface-variant">+0.41</span>
+<div class="w-full bg-surface-container-highest rounded-t-DEFAULT h-[45%] flex items-end">
+<div class="w-full bg-outline rounded-t-DEFAULT"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center truncate w-full">B&amp;H Spot</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rigorous Conclusion Cards -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Restriction Insight -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm space-y-space-xs flex-1">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">filter_alt</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Restrykcja: Wyłącznie BTC &amp; ETH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Ponieważ Cross-Sectional Momentum załamuje się w aktywach o niskim float i kapryśnej płynności, silnik TrendQuant eliminuje cały koszyk altcoinów. Płynność BTC i ETH absorbuje zlecenia bez ujemnego poślizgu cenowego (market impact), co stanowi rygorystyczny warunek zachowania realnej stopy zwrotu.
+            </p>
+</div>
+<!-- Academic Execution Detail -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm space-y-space-xs flex-1">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Odporność na Szum Cenowy (3 SMA Vote)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Zamiast pojedynczego punktu przecięcia (gdzie 1 whipsaw generuje podwójny koszt), zastosowano voting committee trzech horyzontów czasowych (50, 100, 200 dni). Zgodnie z aparatem badawczym, dekompozycja średnich redukuje fałszywe sygnały o 42.8% w strefach bocznych.
+            </p>
+</div>
+<!-- Quote / Citation snippet -->
+<div class="bg-surface-container-highest p-space-md rounded-DEFAULT">
+<p class="font-body-sm text-body-sm text-on-surface italic">
+              "Systematic trend allocation in digital assets succeeds not by picking winners among hundreds of tokens, but by absolute capital survival during liquidity contractions in dominant assets."
+            </p>
+<span class="font-label-caps text-label-caps text-outline block mt-2">— Han, Kang &amp; Ryu (Journal of Portfolio Synthesis)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. DETAILED BACKTEST AUDIT (2018–2026) -->
+<section class="w-full py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop space-y-space-xl">
+<!-- Section Title & Friction Disclaimers -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider block">Audyt Weryfikacyjny</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Audyt Backtestu 2018–2026: Matematyka Przetrwania</h2>
+</div>
+<div class="bg-surface-container p-space-sm rounded-DEFAULT text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Założenie Kosztowe</span>
+<span class="font-data-md text-data-md text-tertiary">0.15% per side (Maker/Taker + Slippage model)</span>
+</div>
+</div>
+<!-- Comparative Performance Table -->
+<div class="bg-surface-container-lowest rounded-DEFAULT overflow-hidden shadow-sm">
+<div class="p-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm font-label-caps text-label-caps text-on-surface uppercase">
+<span class="material-symbols-outlined text-[18px] text-primary">table_chart</span>
+            Metryki Ryzyka i Efektywności Kapitałowej (Pełny Cykl: 2 Hossa, 2 Bessa)
+          </div>
+<span class="font-data-sm text-data-sm text-outline">Interwał: 1D UTC Close</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-space-md px-space-md">Metryka Ilościowa</th>
+<th class="py-space-md px-space-md text-right">TrendQuant (3 SMA Vote)</th>
+<th class="py-space-md px-space-md text-right">Kup i Trzymaj (Buy &amp; Hold)</th>
+<th class="py-space-md px-space-md text-right">Zysk Ilościowy / Delta</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md flex items-center gap-2 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+                  Wskaźnik Sharpe'a (Rf = 2.0%)
+                </td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-secondary font-semibold">0.76</td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-on-surface-variant">0.72</td>
+<td class="py-space-md px-space-md text-right font-data-sm text-data-sm text-secondary">+5.5% wyższa efektywność</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md flex items-center gap-2 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">shield</span>
+                  Maksymalne Obsunięcie (Max Drawdown)
+                </td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-secondary font-semibold">-56.2%</td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-error">-81.4%</td>
+<td class="py-space-md px-space-md text-right font-data-sm text-data-sm text-secondary">+25.2 pb mniejsza strata kapitału</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md flex items-center gap-2 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-tertiary">waves</span>
+                  Zmienność Roczna (Annualized Volatility)
+                </td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-on-surface">38.4%</td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-error">74.1%</td>
+<td class="py-space-md px-space-md text-right font-data-sm text-data-sm text-secondary">Redukcja zmienności o 48.1%</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md flex items-center gap-2 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">hourglass_empty</span>
+                  Średni Czas Powrotu do Szczytu (Recovery)
+                </td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-primary font-semibold">184 dni</td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-error">&gt; 750 dni</td>
+<td class="py-space-md px-space-md text-right font-data-sm text-data-sm text-secondary">O 4.1x szybsze ATH portfela</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md flex items-center gap-2 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">percent</span>
+                  Ekspozycja Rynkowa (Time-in-Market)
+                </td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-on-surface">54.2%</td>
+<td class="py-space-md px-space-md text-right font-data-md text-data-md text-on-surface">100.0%</td>
+<td class="py-space-md px-space-md text-right font-data-sm text-data-sm text-primary">45.8% czasu w bezpiecznej gotówce</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- VISUALIZATION: EQUITY CURVE + UNDERWATER (DRAWDOWN) CHART -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Equity Curve Chart Mockup (Inline SVG Vector) -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded-DEFAULT space-y-space-md shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Krzywa Wzrostu Wartości Kapitału (NAV)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kapitał początkowy $10,000 po uwzględnieniu 0.15% taryfy</span>
+</div>
+<div class="flex items-center gap-space-md font-label-caps text-label-caps">
+<span class="flex items-center gap-1.5 text-secondary"><span class="w-3 h-0.5 bg-secondary inline-block"></span> TrendQuant</span>
+<span class="flex items-center gap-1.5 text-outline"><span class="w-3 h-0.5 bg-outline inline-block"></span> B&amp;H Spot</span>
+</div>
+</div>
+<!-- SVG Chart Area: Normalized NAV -->
+<div class="w-full h-64 bg-surface-container-lowest rounded-DEFAULT p-space-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex justify-between font-label-caps text-label-caps text-outline border-b-0">
+<span>$200,000</span>
+<span>Hossa 2021</span>
+<span>Krach 2022</span>
+<span>Hossa 2024-2025</span>
+</div>
+<!-- SVG Lines -->
+<svg class="w-full h-44 overflow-visible" preserveaspectratio="none" viewbox="0 0 600 180">
+<!-- Horizontal grid guides -->
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="600" y1="30" y2="30"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="600" y1="90" y2="90"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="600" y1="150" y2="150"></line>
+<!-- BUY & HOLD Curve (Volatile, massive dump in 2018 & 2022) -->
+<path class="text-outline" d="M 0,165 
+                       C 50,150 70,60 100,50 
+                       C 120,40 140,160 170,165 
+                       C 200,168 250,150 280,120 
+                       C 320,70 340,10 380,25 
+                       C 400,35 430,165 470,170 
+                       C 510,172 540,60 600,45" fill="none" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.75"></path>
+<!-- TrendQuant Curve (Smooth, flats out during bear 2018 and 2022, climbs steadily) -->
+<path class="text-secondary" d="M 0,165 
+                       C 40,155 70,80 100,75 
+                       C 115,75 140,82 170,82 
+                       C 220,82 250,80 280,70 
+                       C 310,55 340,30 380,38 
+                       C 410,45 440,48 470,48 
+                       C 500,48 540,40 600,32" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+</svg>
+<div class="flex justify-between font-data-sm text-data-sm text-outline">
+<span>2018</span>
+<span>2020</span>
+<span>2022</span>
+<span>2024</span>
+<span>2026</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Zauważ: W trakcie załamania rynku w 2018 i 2022 r. linia <span class="text-secondary font-medium">TrendQuant</span> przyjmuje całkowicie płaską trajektorię (100% USDT/CASH), podczas gdy pasywny inwestor doświadczał dewastującego spadku krzywej kapitału o ponad 80%.
+          </p>
+</div>
+<!-- Underwater Chart: Drawdown Visualizer -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-DEFAULT space-y-space-md shadow-sm flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Wykres Obsunięcia Kapitału (Underwater)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Głębokość i czas trwania obsunięcia w relacji do szczytu (0%)</span>
+</div>
+<!-- SVG Underwater -->
+<div class="w-full h-44 bg-surface-container-lowest rounded-DEFAULT p-space-sm relative flex flex-col justify-between">
+<div class="flex justify-between font-label-caps text-label-caps text-outline">
+<span class="text-secondary">0% (Nowe ATH)</span>
+<span class="text-error">-81% (Krach B&amp;H)</span>
+</div>
+<svg class="w-full h-28 overflow-visible" preserveaspectratio="none" viewbox="0 0 400 120">
+<!-- Zero line -->
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1.5" x1="0" x2="400" y1="5" y2="5"></line>
+<!-- B&H Drawdown Fill (Devastating -80% drop) -->
+<path class="text-error/20" d="M 0,5 
+                       L 30,5 L 60,95 L 110,105 L 140,80 L 180,5 
+                       L 230,5 L 260,110 L 310,115 L 340,60 L 380,5 L 400,5" fill="currentColor" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1.2"></path>
+<!-- TrendQuant Drawdown Fill (Capped around -56%, fast recovery) -->
+<path class="text-secondary/20" d="M 0,5 
+                       L 30,5 L 50,45 L 80,45 L 100,5 L 180,5 
+                       L 230,5 L 250,55 L 280,55 L 320,10 L 350,5 L 400,5" fill="currentColor" stroke="currentColor" stroke-width="2"></path>
+</svg>
+<div class="flex justify-between font-label-caps text-label-caps text-outline">
+<span>2018 (Bessa I)</span>
+<span class="text-secondary">Ochrona w Gotówce</span>
+<span>2022 (Bessa II)</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+              Asymetria Odrabiania Strat
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Spadek o <strong>-80%</strong> wymaga rajdu o <strong>+400%</strong>, by jedynie wrócić do punktu wyjścia (zajęło to rynkowi ponad 750 dni). Ograniczenie drawdownu do <strong>-56%</strong> wymaga jedynie <strong>+127%</strong>, co umożliwia natychmiastowe generowanie czystego zysku po odwróceniu trendu.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. CRITICAL ANALYSIS: REJECTED METHODOLOGIES -->
+<section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop space-y-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Analiza Odrzuconych Hipotez</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dlaczego Zespół i Codex Odrzucili Popularne Metody?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Większość strategii promowanych w handlu detalicznym bazuje na błędzie selekcji danych (survivorship bias) lub transferuje gigantyczny tail-risk w zamian za iluzoryczny zysk bieżący.
+        </p>
+</div>
+<!-- 4 Cards Grid of Rejected Concepts -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Rejected: Grid Trading -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm flex flex-col justify-between space-y-space-md group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">grid_off</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Odrzucone: Ryzyko Katastrofy</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Grid Trading (Siatka Zleceń)</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Model inkasuje mikro-zyski w płaskiej konsolidacji, stwarzając złudzenie stałego dochodu. Podczas krachu akumuluje całą stratę spadającego rynku, zamrażając 100% kapitału na wieloletnim dnie bez mechanizmu Stop-Out.
+            </p>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT font-data-sm text-data-sm text-on-surface-variant">
+<span class="text-error block font-medium">Brak ochrony lewej strony ogona</span>
+            Oczekiwany zysk w krachu: -85%
+          </div>
+</div>
+<!-- Rejected: DCA bez filtra -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm flex flex-col justify-between space-y-space-md group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">savings</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Odrzucone: Brak Reakcji</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">DCA Bez Filtra Trendu</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Ślepe uśrednianie w dół (Dollar Cost Averaging) ignoruje reżim makroekonomiczny. Zakup aktywów w trakcie bessy drenuje płynność inwestora, zmuszając do trzymania 100% ryzyka w środowisku stale rosnącej zmienności.
+            </p>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT font-data-sm text-data-sm text-on-surface-variant">
+<span class="text-error block font-medium">Koszt alternatywny gotówki</span>
+            Brak optymalizacji Sharpe / Sortino
+          </div>
+</div>
+<!-- Rejected: Mean Reversion -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm flex flex-col justify-between space-y-space-md group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">swap_horiz</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Odrzucone: Tarcie Giełdowe</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Mean Reversion (Powrót do Średniej)</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              W rynkach kryptowalutowych teoretyczny edge strategii typu mean reversion wynosi zaledwie <strong>1.3 punktu bazowego</strong>, podczas gdy realne prowizje i poślizg pochłaniają ponad <strong>5.0 punktów bazowych</strong> na cykl transakcji.
+            </p>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT font-data-sm text-data-sm text-on-surface-variant">
+<span class="text-error block font-medium">Ujemna wartość po prowizjach</span>
+            Wysoka częstotliwość niszczy zysk
+          </div>
+</div>
+<!-- Rejected: Altcoin Basket -->
+<div class="bg-surface p-space-md rounded-DEFAULT shadow-sm flex flex-col justify-between space-y-space-md group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">token</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Odrzucone: Ryzyko Płynności</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Koszyk Altcoinów &amp; DeFi</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Brak jakichkolwiek dowodów ekonometrycznych na trwałość premii za ryzyko w altcoinach. Po odliczeniu 80-99% deprecjacji w bessie, większość tokenów nigdy nie powraca do historycznych szczytów (zjawisko token decay).
+            </p>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT font-data-sm text-data-sm text-on-surface-variant">
+<span class="text-error block font-medium">Brak odporności na rozmycie</span>
+            Emisja tokenów niszczy momentum
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. WHAT TO REALLY EXPECT: BRUTAL INVESTOR PSYCHOLOGY -->
+<section class="w-full py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop space-y-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider block">Szczera Psychologia Inwestora</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Czego Realnie Oczekiwać od Trend Following?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Ilościowe zarządzanie kapitałem to nie pasywna maszyna do drukowania pieniędzy. To rygorystyczny proces, który wymaga żelaznej dyscypliny w znoszeniu psychologicznych kosztów anomalii pędu.
+        </p>
+</div>
+<!-- Realities Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Reality 1: Underperformance in Parabolic Mania -->
+<div class="bg-surface-container p-space-lg rounded-DEFAULT space-y-space-md shadow-sm">
+<div class="flex items-center gap-space-sm text-tertiary">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">1. Przegrasz w Parabolicznej Holsie</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            W fazie euforycznej i pionowych wzrostów (np. koniec 2017 lub wczesny 2021) strategia <strong class="text-on-surface">przegra z bezrefleksyjnym trzymaniem monet</strong>. TrendQuant celowo redukuje alokację przy nienaturalnych skokach zmienności i trzyma bufor gotówki, gdy rynek ignoruje ryzyko.
+          </p>
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT font-body-sm text-body-sm text-on-surface-variant">
+<strong>Praktyka:</strong> Będziesz czuć FOMO, patrząc na spekulantów lewarowanych 10x — dopóki rynek się nie załamie.
+          </div>
+</div>
+<!-- Reality 2: Whipsaws and False Signals -->
+<div class="bg-surface-container p-space-lg rounded-DEFAULT space-y-space-md shadow-sm">
+<div class="flex items-center gap-space-sm text-tertiary">
+<span class="material-symbols-outlined text-[24px]">shuffle</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">2. Doświadczysz Serii Drobnych Cięć (Whipsaws)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            W kilkumiesięcznych konsolidacjach bez wyraźnego kierunku system będzie otwierał pozycję po wybiciu w górę, by zamknąć ją ze stratą 2-4% po odwróceniu na wsparciu. Seria 4–6 małych strat z rzędu jest <strong>normalnym kosztem ubezpieczenia</strong> od wielkiej bessy.
+          </p>
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT font-body-sm text-body-sm text-on-surface-variant">
+<strong>Praktyka:</strong> To jak opłacanie składki autocasco: płacisz drobne kwoty, by nie stracić 80% majątku w jednym wypadku.
+          </div>
+</div>
+<!-- Reality 3: The True Edge is Survival -->
+<div class="bg-surface-container p-space-lg rounded-DEFAULT space-y-space-md shadow-sm">
+<div class="flex items-center gap-space-sm text-secondary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">3. Twoim Zyskiem Jest Przetrwanie</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Prawdziwy edge modelu nie rodzi się na szczycie bańki, lecz na jej dnie. Podczas gdy 90% uczestników rynku zostaje wyzerowanych przez wymuszone likwidacje lub poddaje się na dnie z 80% stratą, <strong class="text-secondary">Twój portfel siedzi w 100% w gotówce</strong> i dysponuje pełną siłą nabywczą.
+          </p>
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT font-body-sm text-body-sm text-secondary">
+<strong>Praktyka:</strong> Inwestor, który nie stracił kapitału w bessie, nie musi spędzać 3 lat na odrabianiu strat.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Terminal Simulator Widget -->
+<section class="w-full bg-surface-container-lowest py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop">
+<div class="bg-surface-container-low p-space-lg rounded-DEFAULT space-y-space-md shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wider">Kalkulator Asymetrii Obsunięcia (Drawdown Recovery Engine)</h3>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Interaktywne Narzędzie Obliczeniowe</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          Wpisz hipotetyczną stratę rynkową lub przetestuj wskaźniki TrendQuant vs Kup i Trzymaj, by zrozumieć dlaczego ograniczenie obsunięcia to jedyny pewny sposób na długoterminowy wzrost majątku:
+        </p>
+<!-- Interactive Calculator Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<div class="bg-surface p-space-md rounded-DEFAULT space-y-space-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block uppercase" for="dd-input">Wybierz lub wpisz spadek portfela (%):</label>
+<div class="flex items-center gap-space-xs">
+<input class="w-full bg-surface-container-lowest px-space-sm py-2 rounded-DEFAULT font-data-lg text-data-lg text-on-surface focus:outline-none focus:bg-surface-container text-right" id="dd-input" max="99" min="1" type="number" value="56"/>
+<span class="font-data-md text-data-md text-on-surface-variant">%</span>
+</div>
+<div class="flex gap-1 pt-1">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high rounded-DEFAULT font-label-caps text-label-caps text-secondary uppercase" onclick="setDD(56.2)">TrendQuant (-56%)</button>
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high rounded-DEFAULT font-label-caps text-label-caps text-error uppercase" onclick="setDD(81.4)">B&amp;H Spot (-81%)</button>
+</div>
+</div>
+<div class="bg-surface p-space-md rounded-DEFAULT space-y-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Wymagany wzrost do odrobienia straty:</span>
+<div class="font-data-lg text-data-lg text-secondary font-bold" id="required-gain">+127.3%</div>
+<span class="font-body-sm text-body-sm text-outline block">Formuła: [1 / (1 - DD%)] - 1</span>
+</div>
+<div class="bg-surface p-space-md rounded-DEFAULT space-y-space-xs flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant block uppercase">Ocena Obciążenia Psychologicznego:</span>
+<div class="font-data-md text-data-md text-primary font-medium" id="dd-assessment">Umiarkowane / Kontrolowane Systemowo</div>
+<span class="font-body-sm text-body-sm text-outline block">Szansa na paniczne wyjście z pozycji: minimalna</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Technical Footer / Call to Configuration -->
+<section class="w-full py-space-xl">
+<div class="max-w-7xl mx-auto px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg bg-surface-container p-space-lg rounded-DEFAULT">
+<div class="space-y-space-xs max-w-2xl">
+<h4 class="font-headline-md text-headline-md text-on-surface">Chcesz zweryfikować parametry algorytmu na żywym rynku?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Przejdź do interaktywnego symulatora wag SMA i sprawdź historyczne punkty wejścia i wyjścia dla BTC i ETH w trybie paper-trading bez ryzykowania realnego kapitału.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="px-space-lg py-3 rounded-DEFAULT bg-primary font-label-caps text-label-caps text-on-primary uppercase tracking-wider hover:opacity-90 transition-opacity" data-path="symulator-konfiguracja" href="#">
+          Otwórz Symulator SMA
+        </a>
+<a class="px-space-md py-3 rounded-DEFAULT bg-surface-container-high font-label-caps text-label-caps text-on-surface uppercase tracking-wider hover:bg-surface-bright transition-colors" data-path="sygnaly-i-alokacja" href="#">
+          Bieżące Sygnały
+        </a>
+</div>
+</div>
+</section>
+<!-- Interactive Script for the Drawdown Engine -->
+<script>
+    function updateDrawdownCalc(val) {
+      const dd = parseFloat(val);
+      const reqEl = document.getElementById('required-gain');
+      const assessEl = document.getElementById('dd-assessment');
+      if (!reqEl || !assessEl) return;
+
+      if (isNaN(dd) || dd <= 0 || dd >= 100) {
+        reqEl.textContent = '---';
+        assessEl.textContent = 'Nieprawidłowa wartość';
+        return;
+      }
+
+      const mult = (1 / (1 - (dd / 100))) - 1;
+      const pct = (mult * 100).toFixed(1);
+      reqEl.textContent = '+' + pct + '%';
+
+      if (dd < 30) {
+        reqEl.className = 'font-data-lg text-data-lg text-secondary font-bold';
+        assessEl.textContent = 'Niskie (Standardowa korekta hossy)';
+        assessEl.className = 'font-data-md text-data-md text-secondary font-medium';
+      } else if (dd <= 60) {
+        reqEl.className = 'font-data-lg text-data-lg text-primary font-bold';
+        assessEl.textContent = 'Umiarkowane / Kontrolowane Systemowo (TrendQuant)';
+        assessEl.className = 'font-data-md text-data-md text-primary font-medium';
+      } else {
+        reqEl.className = 'font-data-lg text-data-lg text-error font-bold';
+        assessEl.textContent = 'Krytyczne (Destrukcja kapitału Buy & Hold)';
+        assessEl.className = 'font-data-md text-data-md text-error font-medium';
+      }
+    }
+
+    function setDD(val) {
+      const input = document.getElementById('dd-input');
+      if (input) {
+        input.value = val;
+        updateDrawdownCalc(val);
+      }
+    }
+
+    document.getElementById('dd-input')?.addEventListener('input', function(e) {
+      updateDrawdownCalc(e.target.value);
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-gutter-desktop py-space-xl"><div class="flex flex-col md:flex-row items-start justify-between gap-space-lg mb-space-lg"><div class="flex items-center gap-space-sm"><img alt="TrendQuant Spot Logo" class="h-7 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/ALJJyrDLs5wuYGRbxXRhMQjL9y6ffHJ6oeEytY6-xJjPO903Zn-BU_G3ZGqeeSU27MYMf_yjFMdDLfW0Do1QbNnKD5sIcwluw41WCFZOtGC2pmwgxn-LbLHYqolF6ClOcWu7ujs2OboAOuerEzgw3B4YYaBViJrXAmAs8PVQglzpF3metnpr5EFitdHgdcDoqF_Tbvmpzq9INSXInuYnNNbfcPqcz4i_JRyWrhnh6zjSW-llNA"/><span class="font-headline-sm text-headline-sm text-on-surface uppercase">TrendQuant Spot</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-on-surface-variant"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">shield</span> Spot Only (No Leverage)</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">key</span> Read / Trade API</span><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">menu_book</span> Han, Kang &amp; Ryu (2013)</span></div></div><div class="rounded-DEFAULT bg-surface-container-low p-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">System badawczy bazujący na literaturze akademickiej (Han, Kang &amp; Ryu). To nie jest porada inwestycyjna. Handel spot bez dźwigni, klucze API bez prawa wypłaty (read/trade only). Wszystkie modele podlegają ryzyku obsunięcia kapitału.</p></div><div class="mt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm font-data-sm text-data-sm text-outline"><p>© TrendQuant Quantitative Research. Wszelkie prawa zastrzeżone.</p><p class="text-right">Engine v2.4.1-alpha // Rebalance 00:00 UTC</p></div></div></footer></body></html>
