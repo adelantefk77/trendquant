@@ -50,6 +50,12 @@ class BybitDemo:
             with urllib.request.urlopen(req, timeout=20) as r:
                 body = json.load(r)
         except urllib.error.HTTPError as e:
+            if e.code == 403:
+                raise BybitError(
+                    f"HTTP 403 z Bybit demo ({path}): Bybit blokuje adres IP serwera. "
+                    "Najczęstsza przyczyna to region serwera w kraju objętym ograniczeniami Bybit "
+                    "(np. USA, Singapur). Zmień region hostingu."
+                ) from None
             raise BybitError(f"HTTP {e.code} z Bybit demo ({path})") from None
         if body.get("retCode") != 0:
             raise BybitError(f"Bybit demo: {body.get('retMsg')} (kod {body.get('retCode')}, {path})")
