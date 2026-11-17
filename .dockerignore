@@ -2,5 +2,6 @@
 *
 !bot/engine.py
 !bot/bybit.py
+!bot/okx.py
 !bot/server.py
 !bot/static/

@@ -41,6 +41,10 @@ w głównym katalogu. W panelu Railway trzeba ustawić:
 1. **Variables:**
    - `BYBIT_DEMO_API_KEY` i `BYBIT_DEMO_API_SECRET`: klucze demo Bybit (te same co w `bot/.env`).
      Railway nie czyta `bot/.env`. Bez tych zmiennych bot prowadzi portfel wirtualny.
+   - albo zamiast Bybit: `OKX_DEMO_API_KEY`, `OKX_DEMO_API_SECRET` i `OKX_DEMO_PASSPHRASE`
+     (klucz z sekcji Demo Trading OKX, z handlem spot). Gdy są ustawione klucze OKX, bot wybiera OKX.
+     Konta europejskie OKX nie mają USDT, więc bot sam przechodzi wtedy na pary z USDC.
+     Giełdę można też wskazać wprost zmienną `BROKER` (`okx_demo`, `bybit_demo` albo `paper`).
    - `PANEL_PASSWORD`: hasło do panelu. Przeglądarka poprosi o login (nazwa użytkownika dowolna).
      Bez hasła panel jest publiczny i tylko do odczytu.
    - opcjonalnie parametry strategii: `TARGET_VOL`, `CAP_ASSET`, `CAP_TOTAL`, `BAND`, `DD_ALERT`.

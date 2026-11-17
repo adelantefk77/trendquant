@@ -207,7 +207,8 @@ footer .in{max-width:1360px;margin:0 auto}
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const num=(x,d=2)=>x.toLocaleString("pl-PL",{minimumFractionDigits:d,maximumFractionDigits:d});
-const usd=(x,d=2)=>num(x,d)+" USDT";
+let Q="USDT";
+const usd=(x,d=2)=>num(x,d)+" "+Q;
 const pct=(x,d=1)=>num(x*100,d)+"%";
 const sgn=(x,f)=>(x>0?"+":x<0?"−":"")+f(Math.abs(x));
 const NAMES={BTCUSDT:["BTC / USDT","B"],ETHUSDT:["ETH / USDT","E"]};
@@ -277,11 +278,12 @@ function renderAssets(){
 }
 
 function render(){
-  const p=S.portfolio,st=S.status,demo=S.mode==="bybit_demo";
-  $("mode-badge").textContent=demo?"Bybit demo":"Papier";
-  $("mode-note").textContent=demo?"Zlecenia trafiają na konto demo Bybit (wirtualne środki). Sygnały liczone z cen spot Binance.":"Wirtualny portfel. Bot nie składa prawdziwych zleceń i nie ma kluczy API.";
+  Q=S.quote||"USDT";
+  const p=S.portfolio,st=S.status,demo=S.mode!=="paper",venue=S.mode==="okx_demo"?"OKX":"Bybit";
+  $("mode-badge").textContent=demo?venue+" demo":"Papier";
+  $("mode-note").textContent=demo?"Zlecenia trafiają na konto demo "+venue+" (wirtualne środki). Sygnały liczone z cen spot Binance.":"Wirtualny portfel. Bot nie składa prawdziwych zleceń i nie ma kluczy API.";
   $("trades-title").textContent=demo?"Rejestr zleceń na koncie demo":"Rejestr wirtualnych transakcji";
-  if(demo)$("foot").textContent="Konto demo Bybit: zlecenia są prawdziwymi zleceniami w środowisku demo, ale środki są wirtualne. To narzędzie badawcze, a nie porada inwestycyjna. Wyniki na demo nie gwarantują wyników na prawdziwym rynku.";
+  if(demo)$("foot").textContent="Konto demo "+venue+": zlecenia są prawdziwymi zleceniami w środowisku demo, ale środki są wirtualne. To narzędzie badawcze, a nie porada inwestycyjna. Wyniki na demo nie gwarantują wyników na prawdziwym rynku.";
   $("st-dot").className="dot "+(st.data_ok&&!S.paused?"pulse":"bad");
   $("st-text").textContent=st.message||"";
   $("pause-btn").textContent=S.paused?"Wznów":"Wstrzymaj";
@@ -305,7 +307,7 @@ function render(){
   $("k-tr").textContent=p.trade_count;$("k-tr-s").textContent="Koszty łącznie "+usd(p.fees_paid);
   renderAssets();
   const parts=S.assets.map((a,i)=>({name:a.symbol.replace("USDT","")+" spot",w:a.current_w,val:a.value,color:i?"var(--amber)":"var(--primary)",
-    note:`Cel ${pct(a.target_w)} · ${a.votes??"–"}/3 głosy`})).concat([{name:"Gotówka (USDT)",w:p.cash/p.equity,val:p.cash,color:"var(--green)",note:"Bufor poza rynkiem"}]);
+    note:`Cel ${pct(a.target_w)} · ${a.votes??"–"}/3 głosy`})).concat([{name:"Gotówka ("+Q+")",w:p.cash/p.equity,val:p.cash,color:"var(--green)",note:"Bufor poza rynkiem"}]);
   $("alloc-bar").innerHTML=parts.slice(0,2).map(x=>`<div style="width:${(x.w*100).toFixed(2)}%;background:${x.color}" title="${esc(x.name)} ${pct(x.w)}"></div>`).join("");
   $("alloc-tiles").innerHTML=parts.map(x=>`<div class="tile alloc"><div class="top2"><span class="caps"><span class="dot" style="display:inline-block;background:${x.color};margin-right:6px"></span>${esc(x.name)}</span><span class="pct mono">${pct(x.w)}</span></div><div class="s">${esc(x.note)}</div><div class="kv"><span>Wartość:</span><span>${usd(x.val)}</span></div></div>`).join("");
   const eh=S.equity_history.concat([{date:"teraz",equity:p.equity}]),eb=$("eq-box");
@@ -314,11 +316,11 @@ function render(){
   else{eb.appendChild(lineChart(eb,eh.map(r=>r.date),[{name:"Portfel",color:"var(--primary)",width:2,values:eh.map(r=>r.equity)}],{w:1280,h:260,axis:true,base:p.initial,label:"Wartość portfela w czasie"}));
     const rp=S.equity_history.filter(r=>r.replay).length;$("eq-note").textContent=(rp?rp+" pkt odtworzonych z historii · ":"")+"linia przerywana = kapitał początkowy"}
   $("trades").innerHTML=S.trades.length?`<table><thead><tr><th>Data UTC</th><th>Para</th><th>Kierunek</th><th class="num">Ilość</th><th class="num">Cena</th><th class="num">Wartość</th><th class="num">Koszt</th><th>Udział</th><th>Powód</th></tr></thead><tbody>${
-    S.trades.map(t=>`<tr><td class="mono">${esc(t.date)}${t.replay?' <span class="badge n">odtworzona</span>':""}</td><td class="mono">${esc(t.symbol.replace("USDT","/USDT"))}</td><td><span class="badge ${t.side==="KUPNO"?"g":"a"}">${esc(t.side)}</span></td><td class="num">${num(t.qty,6)}</td><td class="num">${num(t.price,2)}</td><td class="num">${num(t.notional,2)}</td><td class="num">${num(t.fee,2)}</td><td class="mono">${pct(t.w_from)} → ${pct(t.w_to)}</td><td>${esc(t.reason)}${t.late?' <span class="dim">(po cenie bieżącej)</span>':""}</td></tr>`).join("")}</tbody></table>`
+    S.trades.map(t=>`<tr><td class="mono">${esc(t.date)}${t.replay?' <span class="badge n">odtworzona</span>':""}</td><td class="mono">${esc(t.symbol.replace("USDT","/"+Q))}</td><td><span class="badge ${t.side==="KUPNO"?"g":"a"}">${esc(t.side)}</span></td><td class="num">${num(t.qty,6)}</td><td class="num">${num(t.price,2)}</td><td class="num">${num(t.notional,2)}</td><td class="num">${num(t.fee,2)}</td><td class="mono">${pct(t.w_from)} → ${pct(t.w_to)}</td><td>${esc(t.reason)}${t.late?' <span class="dim">(po cenie bieżącej)</span>':""}</td></tr>`).join("")}</tbody></table>`
     :'<div class="empty">Brak transakcji. Bot kupuje dopiero, gdy co najmniej jedna średnia da głos.</div>';
   const c=S.config;
   $("params").innerHTML=[["Średnie kroczące",c.mas.join(" / ")+" dni","Trzy głosy trendu"],["Docelowa zmienność",pct(c.target_vol,0),"Rocznie, na aktywo"],["Limit na aktywo",pct(c.cap_asset,0),"Łącznie do "+pct(c.cap_total,0)],
-    ["Pasmo korekty",num(c.band*100,0)+" pp","Korekta w poniedziałki"],demo?["Koszt na stronę","wg Bybit","Rzeczywista prowizja demo"]:["Koszt na stronę",pct(c.cost,2),"Prowizja i poślizg"],["Próg alarmu",pct(c.dd_alert,0),"Przegląd, bez autosprzedaży"]]
+    ["Pasmo korekty",num(c.band*100,0)+" pp","Korekta w poniedziałki"],demo?["Koszt na stronę","wg "+venue,"Rzeczywista prowizja demo"]:["Koszt na stronę",pct(c.cost,2),"Prowizja i poślizg"],["Próg alarmu",pct(c.dd_alert,0),"Przegląd, bez autosprzedaży"]]
     .map(([l,v,s])=>`<div class="tile"><div class="caps">${l}</div><div class="mono pri" style="margin-top:6px">${v}</div><div class="s">${s}</div></div>`).join("");
   $("events").innerHTML=S.events.length?S.events.map(e=>`<div><span class="mono dim">${esc(e.ts.replace("T"," ").replace("Z",""))}</span> <span class="${e.kind==="alert"?"amber":""}">${esc(e.text)}</span></div>`).join(""):'<div class="dim">Brak zdarzeń.</div>';
 }

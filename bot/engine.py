@@ -19,6 +19,9 @@ import urllib.request
 from datetime import datetime, timezone
 
 from bybit import BybitDemo, BybitError
+from okx import OKXDemo, OKXError
+
+BrokerError = (BybitError, OKXError)
 
 API = os.environ.get("MARKET_API", "https://data-api.binance.vision/api/v3/klines")
 ASSETS = ["BTCUSDT", "ETHUSDT"]
@@ -50,8 +53,17 @@ CFG = {
 }
 BYBIT_KEY = os.environ.get("BYBIT_DEMO_API_KEY", "").strip()
 BYBIT_SECRET = os.environ.get("BYBIT_DEMO_API_SECRET", "").strip()
+OKX_KEY = os.environ.get("OKX_DEMO_API_KEY", "").strip()
+OKX_SECRET = os.environ.get("OKX_DEMO_API_SECRET", "").strip()
+OKX_PASSPHRASE = os.environ.get("OKX_DEMO_PASSPHRASE", "").strip()
+OKX_HOST = os.environ.get("OKX_HOST", "").strip() or None
+OKX_QUOTE = os.environ.get("OKX_QUOTE", "").strip() or None  # USDT albo USDC; puste = automatycznie
 # Z kluczami demo bot wysyła zlecenia na konto demo Bybit; bez nich prowadzi portfel wirtualny.
-CFG["broker"] = "bybit_demo" if BYBIT_KEY and BYBIT_SECRET else "paper"
+# Wybór giełdy: zmienna BROKER (okx_demo, bybit_demo, paper) albo automatycznie według podanych kluczy.
+_auto = ("okx_demo" if OKX_KEY and OKX_SECRET and OKX_PASSPHRASE
+         else "bybit_demo" if BYBIT_KEY and BYBIT_SECRET else "paper")
+CFG["broker"] = os.environ.get("BROKER", "").strip() or _auto
+VENUE = {"okx_demo": "OKX", "bybit_demo": "Bybit"}.get(CFG["broker"])
 COIN = {"BTCUSDT": "BTC", "ETHUSDT": "ETH"}
 STATE_PATH = os.environ.get("STATE_PATH", "/data/state.json")
 
@@ -96,7 +108,12 @@ class Bot:
         self.lock = threading.RLock()
         self.market = None          # ostatnie pobrane dane rynkowe
         self.status = {"data_ok": False, "message": "Uruchamianie", "updated_at": None, "last_error": None}
-        self.broker = BybitDemo(BYBIT_KEY, BYBIT_SECRET) if CFG["broker"] == "bybit_demo" else None
+        if CFG["broker"] == "okx_demo":
+            self.broker = OKXDemo(OKX_KEY, OKX_SECRET, OKX_PASSPHRASE, host=OKX_HOST, quote=OKX_QUOTE)
+        elif CFG["broker"] == "bybit_demo":
+            self.broker = BybitDemo(BYBIT_KEY, BYBIT_SECRET)
+        else:
+            self.broker = None
         self.state = self._load()
 
     # ---------- stan ----------
@@ -104,7 +121,7 @@ class Bot:
         return {
             "version": 1,
             "broker": CFG["broker"],
-            "initial_equity": None if CFG["broker"] == "bybit_demo" else CFG["initial_cash"],
+            "initial_equity": None if CFG["broker"] != "paper" else CFG["initial_cash"],
             "created_at": iso_now(),
             "cash": CFG["initial_cash"],
             "units": {a: 0.0 for a in ASSETS},
@@ -133,7 +150,7 @@ class Bot:
         return st
 
     def _sync_account(self, prices):
-        """Tryb Bybit demo: gotówka i pozycje pochodzą z prawdziwych sald konta demo."""
+        """Tryb konta demo: gotówka i pozycje pochodzą z prawdziwych sald konta demo giełdy."""
         s = self.state
         bal = self.broker.balances()
         s["cash"] = bal["USDT"]
@@ -142,7 +159,7 @@ class Bot:
         if s["initial_equity"] is None:
             eq = s["cash"] + sum(s["units"][a] * prices[a] for a in ASSETS)
             s["initial_equity"] = s["peak_equity"] = eq
-            self._event("info", f"Połączono z kontem demo Bybit. Kapitał na starcie: {eq:,.2f} USDT.".replace(",", " "))
+            self._event("info", f"Połączono z kontem demo {VENUE}. Kapitał na starcie: {eq:,.2f} USDT.".replace(",", " "))
 
     def _fill(self, a, delta, price, sell_all):
         """Wykonuje zmianę pozycji. Zwraca (ilość, cena, wartość, koszt w USDT) albo None."""
@@ -155,13 +172,13 @@ class Bot:
             s["cash"] -= delta + fee
             return abs(delta) / price, price, abs(delta), fee
         if delta > 0:
-            f = self.broker.market_buy(a, delta)
+            f = self.broker.market_buy(a, delta, price)
         else:
             f = self.broker.market_sell(a, s["units"][a] if sell_all else abs(delta) / price, price)
         if f is None:
             return None
         if f["qty"] <= 0:
-            raise BybitError(f"Zlecenie {a} nie zostało wypełnione (status {f['status']}).")
+            raise BrokerError[0](f"Zlecenie {a} nie zostało wypełnione (status {f['status']}).")
         # prowizja spot: przy kupnie w monecie, przy sprzedaży w USDT
         fee = f["fee"] * f["price"] if delta > 0 else f["fee"]
         return f["qty"], f["price"], f["value"], fee
@@ -211,8 +228,8 @@ class Bot:
                 continue
             try:
                 fill = self._fill(a, delta, opens[a], sell_all=(tgt[a] == 0))
-            except BybitError as e:
-                self._event("alert", f"Zlecenie {a} na Bybit demo nie powiodło się: {e}")
+            except BrokerError as e:
+                self._event("alert", f"Zlecenie {a} na {VENUE} demo nie powiodło się: {e}")
                 raise
             s["last_votes"][a] = votes
             if fill is None:
@@ -281,7 +298,7 @@ class Bot:
                     self._event("info", f"Odtwarzanie historii od {dates[first + 1]} (tryb symulacji wstecznej).")
                 else:
                     first = last_closed
-                    self._event("info", "Start bota na koncie demo Bybit." if self.broker else "Start portfela papierowego.")
+                    self._event("info", f"Start bota na koncie demo {VENUE}." if self.broker else "Start portfela papierowego.")
             elif s["last_signal_date"] in dates:
                 first = dates.index(s["last_signal_date"]) + 1
             else:
@@ -298,10 +315,10 @@ class Bot:
                 else:
                     for j in range(first, last_closed + 1):
                         self._process(kl, j, replay=(j < last_closed))
-            except BybitError as e:
+            except BrokerError as e:
                 self._save()
                 self.status.update(data_ok=False, updated_at=iso_now(), last_error=str(e)[:200],
-                                   message="Problem z kontem demo Bybit. Bot ponowi próbę.")
+                                   message=f"Problem z kontem demo {VENUE}. Bot ponowi próbę.")
                 return
             eq = s["cash"] + sum(s["units"][a] * prices[a] for a in ASSETS)
             self._track_drawdown(eq)
@@ -329,7 +346,7 @@ class Bot:
     def snapshot(self):
         with self.lock:
             s, kl = self.state, self.market
-            out = {"config": CFG, "status": dict(self.status), "paused": s["paused"], "mode": CFG["broker"],
+            out = {"config": CFG, "status": dict(self.status), "paused": s["paused"], "mode": CFG["broker"], "quote": getattr(self.broker, "quote", None) or "USDT",
                    "alert_active": s["alert_active"], "created_at": s["created_at"],
                    "last_signal_date": s["last_signal_date"], "server_time": iso_now(),
                    "trades": list(reversed(s["trades"][-60:])), "events": list(reversed(s["events"][-20:])),

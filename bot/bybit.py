@@ -92,7 +92,7 @@ class BybitDemo:
         digits = max(0, -int(math.floor(math.log10(step) + 1e-9)))
         return f"{math.floor(x / step + 1e-9) * step:.{digits}f}"
 
-    def market_buy(self, symbol, usd_value):
+    def market_buy(self, symbol, usd_value, price=None):
         """Kupno rynkowe spot na demo za podaną kwotę USDT. None, gdy poniżej minimum giełdy."""
         f = self.filters(symbol)
         if usd_value < f["min_amt"]:

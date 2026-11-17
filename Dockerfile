@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1 \
 
 RUN useradd --create-home --uid 10001 bot && mkdir /data && chown bot:bot /data
 WORKDIR /app
-COPY bot/engine.py bot/bybit.py bot/server.py ./
+COPY bot/engine.py bot/bybit.py bot/okx.py bot/server.py ./
 COPY bot/static ./static
 
 # Start jako root tylko po to, żeby oddać wolumen /data użytkownikowi bot;
